@@ -6,7 +6,9 @@ function App() {
 
   return (
     <>
-      <h1>Simple Savage</h1>
+      <div className="app-container">
+        <h1>Simple Savage</h1>
+      </div>
     </>
   );
 }

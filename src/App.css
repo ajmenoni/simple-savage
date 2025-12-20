@@ -5,6 +5,22 @@
   text-align: center;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.app-container h1 {
+  color: var(--savage-yellow);
+  font-size: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+}
 .card {
   padding: 2em;
 }
