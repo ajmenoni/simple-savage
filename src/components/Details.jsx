@@ -10,8 +10,11 @@ function Details({ onNext }) {
   const [concept, setConcept] = useState("");
   const [ancestry, setAncestry] = useState(null);
 
-  function handleKeyDown(event) {
-    if (event.key === "Enter") {
+  function handleInputEvent(event) {
+    if (
+      event.type === "blur" ||
+      (event.type === "keydown" && event.key === "Enter")
+    ) {
       const input = event.target;
       if (input.name === "name") {
         setName(input.value);
@@ -40,7 +43,8 @@ function Details({ onNext }) {
               name="name"
               id="name"
               placeholder="Name"
-              onKeyDown={handleKeyDown}
+              onKeyDown={handleInputEvent}
+              onBlur={handleInputEvent}
             />
           ) : (
             <p>{name}</p>
@@ -52,7 +56,8 @@ function Details({ onNext }) {
               name="concept"
               id="concept"
               placeholder="Concept"
-              onKeyDown={handleKeyDown}
+              onKeyDown={handleInputEvent}
+              onBlur={handleInputEvent}
             />
           ) : (
             <p>{concept}</p>
