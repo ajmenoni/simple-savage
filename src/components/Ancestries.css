@@ -1,0 +1,7 @@
+.ancestries-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 375px;
+  overflow-y: auto;
+}

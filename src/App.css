@@ -40,6 +40,36 @@
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
 }
 
+.item-card {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+  border-color: var(--savage-yellow);
+}
+
+.item-card.selected {
+  border: 2px solid var(--savage-yellow);
+  box-shadow: 0 0 10px rgba(255, 199, 44, 0.5);
+}
+
+.item-card-title {
+  font-weight: bold;
+  color: var(--savage-orange);
+}
+
 .read-the-docs {
   color: #888;
 }

@@ -1,10 +1,35 @@
 import { useState } from "react";
+import "./index.css";
 import "./App.css";
 import Button from "./components/Button";
 import Details from "./components/Details";
 
 function App() {
   const [step, setStep] = useState(0);
+  const [character, setCharacter] = useState(
+    // 0 = d4, 1 = d6, etc.
+    {
+      name: "",
+      concept: "",
+      ancestry: null,
+      hindrances: {},
+      hindrancePoints: 0,
+      attributes: {
+        agility: 0,
+        smarts: 0,
+        spirit: 0,
+        strength: 0,
+        vigor: 0,
+      },
+      skills: {
+        athletics: 0,
+        commonKnowledge: 0,
+        notice: 0,
+        persuasion: 0,
+        stealth: 0,
+      },
+    }
+  );
 
   return (
     <>
