@@ -1,23 +1,20 @@
 import { useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
-import Card from "./components/Card";
+import Details from "./components/Details";
 
 function App() {
-  function beginCreate() {
-    alert("you clicked");
-  }
-
-  function handleNext() {
-    alert("Next");
-  }
+  const [step, setStep] = useState(0);
 
   return (
     <>
       <div className="app-container">
         <h1>Simple Savage</h1>
-        <Button text={"Build Character"} onClick={beginCreate} />
-        <Card handleNext={handleNext} />
+        {step === 0 ? (
+          <Button text={"Build Character"} onClick={() => setStep(1)} />
+        ) : (
+          <Details onNext={() => setStep(2)} />
+        )}
       </div>
     </>
   );
