@@ -13,6 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 
   --savage-yellow: #ffc72c;
+  --savage-orange: #d46a1f;
+  --savage-red: #b9472a;
 }
 
 a {
@@ -37,10 +39,29 @@ h1 {
   line-height: 1.1;
 }
 
+input,
+select {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: inherit;
+  transition: border-color 0.25s, background-color 0.25s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
+  margin-bottom: 0.5rem;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -56,6 +77,14 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.card h2 {
+  color: var(--savage-orange);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  text-align: center;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -66,5 +95,9 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+  .card {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 }
