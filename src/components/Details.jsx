@@ -4,31 +4,32 @@ import Card from "./Card";
 import Ancestries from "./Ancestries";
 import "./Details.css";
 
-function Details({ onNext }) {
+function Details({ character, setCharacter, onNext }) {
   const [showAncestrySelect, setShowAncestrySelect] = useState(false);
-  const [name, setName] = useState("");
-  const [concept, setConcept] = useState("");
-  const [ancestry, setAncestry] = useState(null);
+  const { name, concept, ancestry } = character;
+
+  function updateCharacterField(field, value) {
+    setCharacter((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  }
 
   function handleInputEvent(event) {
     if (
       event.type === "blur" ||
       (event.type === "keydown" && event.key === "Enter")
     ) {
-      const input = event.target;
-      if (input.name === "name") {
-        setName(input.value);
-      } else if (input.name === "concept") {
-        setConcept(input.value);
-      }
+      const { name, value } = event.target;
+      updateCharacterField(name, value);
     }
   }
 
   function handleSelection(id, name, description) {
-    setAncestry({
-      id: id,
-      name: name,
-      description: description,
+    updateCharacterField("ancestry", {
+      id,
+      name,
+      description,
     });
   }
   return (
@@ -47,7 +48,10 @@ function Details({ onNext }) {
               onBlur={handleInputEvent}
             />
           ) : (
-            <p>{name}</p>
+            <>
+              <span className="title">Name: </span>
+              <p>{name}</p>
+            </>
           )}
 
           {!concept ? (

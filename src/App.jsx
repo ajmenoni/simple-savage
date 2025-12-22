@@ -38,7 +38,11 @@ function App() {
         {step === 0 ? (
           <Button text={"Build Character"} onClick={() => setStep(1)} />
         ) : (
-          <Details onNext={() => setStep(2)} />
+          <Details
+            character={character}
+            setCharacter={setCharacter}
+            onNext={() => setStep(2)}
+          />
         )}
       </div>
     </>
