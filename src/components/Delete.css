@@ -1,0 +1,29 @@
+.delete-button {
+  background: none;
+  border: none;
+
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  line-height: 0;
+  font-size: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.delete-button img,
+.delete-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.delete-button:hover svg {
+  color: var(--savage-yellow);
+}

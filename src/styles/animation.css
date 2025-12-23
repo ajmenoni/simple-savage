@@ -1,0 +1,23 @@
+.slide-in-left {
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: slideInLeft 0.4s forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.4s forwards;
+}
+
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}

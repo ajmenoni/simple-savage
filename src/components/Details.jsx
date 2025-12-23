@@ -3,8 +3,9 @@ import Button from "./Button";
 import Card from "./Card";
 import Ancestries from "./Ancestries";
 import "./Details.css";
+import Delete from "./Delete";
 
-function Details({ character, setCharacter, onNext }) {
+function Details({ character, setCharacter }) {
   const [showAncestrySelect, setShowAncestrySelect] = useState(false);
   const { name, concept, ancestry } = character;
 
@@ -48,10 +49,11 @@ function Details({ character, setCharacter, onNext }) {
               onBlur={handleInputEvent}
             />
           ) : (
-            <>
+            <div className="trait-container">
               <span className="title">Name: </span>
-              <p>{name}</p>
-            </>
+              <span>{name}</span>
+              <Delete onClick={() => updateCharacterField("name", null)} />
+            </div>
           )}
 
           {!concept ? (
@@ -64,7 +66,11 @@ function Details({ character, setCharacter, onNext }) {
               onBlur={handleInputEvent}
             />
           ) : (
-            <p>{concept}</p>
+            <div className="trait-container">
+              <span className="title">Concept: </span>
+              <span>{concept}</span>
+              <Delete onClick={() => updateCharacterField("concept", null)} />
+            </div>
           )}
 
           {!ancestry ? (
@@ -75,15 +81,17 @@ function Details({ character, setCharacter, onNext }) {
                   setShowAncestrySelect(true);
                 }}
               />
-              <Button className="next" text={"Next"} onClick={onNext} />
             </div>
           ) : (
-            <p>{ancestry.name}</p>
+            <div className="trait-container">
+              <span className="title">Ancestry: </span>
+              <span>{ancestry.name}</span>
+              <Delete onClick={() => updateCharacterField("ancestry", null)} />
+            </div>
           )}
         </Card>
       ) : (
         <Card>
-          <h2>Ancestries</h2>
           <Ancestries
             ancestrySelect={setShowAncestrySelect}
             handleSelection={handleSelection}
