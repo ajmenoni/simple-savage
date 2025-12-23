@@ -1,9 +1,9 @@
-import ancestries from "../data/ancestries";
-import Card from "./Card";
+import ancestries from "../../data/ancestries";
+import Card from "../Card";
 import "./Ancestries.css";
-import "../App.css";
-import "../styles/animation.css";
-import Button from "./Button";
+import "../../App.css";
+import "../../styles/animation.css";
+import Button from "../Button/Button";
 import { useState } from "react";
 
 function Ancestries({ ancestrySelect, handleSelection }) {
@@ -42,7 +42,7 @@ function Ancestries({ ancestrySelect, handleSelection }) {
           ))}
         </div>
         <Button
-          text="Select"
+          text="Done"
           onClick={() => {
             setSlideIn(false);
             setTimeout(() => {

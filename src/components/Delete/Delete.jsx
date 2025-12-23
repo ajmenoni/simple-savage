@@ -1,4 +1,4 @@
-import Trashcan from "./Traschcan";
+import Trashcan from "../Traschcan";
 import "./Delete.css";
 
 function Delete({ onClick, label = "Delete", className = "" }) {

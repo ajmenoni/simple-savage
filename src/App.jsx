@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./index.css";
 import "./App.css";
-import Button from "./components/Button";
-import Details from "./components/Details";
+import Button from "./components/Button/Button";
+import Details from "./components/Details/Details";
 
 function App() {
   const [step, setStep] = useState(0);
