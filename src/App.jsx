@@ -12,7 +12,7 @@ function App() {
       name: "",
       concept: "",
       ancestry: null,
-      hindrances: {},
+      hindrances: null,
       hindrancePoints: 0,
       attributes: {
         agility: 0,
@@ -40,8 +40,8 @@ function App() {
         ) : (
           <Details character={character} setCharacter={setCharacter} />
         )}
+        {step == !0 && <Button className="next" text={"Next"} />}
       </div>
-      <Button className="next" text={"Next"} />
     </>
   );
 }
