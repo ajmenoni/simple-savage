@@ -141,3 +141,13 @@
   padding: 0;
   margin-left: auto;
 }
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.bottom-nav-button {
+  min-width: 6.375rem;
+}

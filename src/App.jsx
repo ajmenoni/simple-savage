@@ -5,6 +5,7 @@ import Button from "./components/Button/Button";
 import Details from "./components/Details/Details";
 
 function App() {
+  const MIN_STEP = 1;
   const [step, setStep] = useState(0);
   const [character, setCharacter] = useState(
     // 0 = d4, 1 = d6, etc.
@@ -35,12 +36,28 @@ function App() {
     <>
       <div className="app-container">
         <h1>Simple Savage</h1>
-        {step === 0 ? (
+        {step === 0 && (
           <Button text={"Build Character"} onClick={() => setStep(1)} />
-        ) : (
+        )}
+
+        {step === 1 && (
           <Details character={character} setCharacter={setCharacter} />
         )}
-        {step == !0 && <Button className="next" text={"Next"} />}
+
+        {step > 0 && (
+          <div className="nav-buttons">
+            <Button
+              className={"bottom-nav-button"}
+              text={"Previous"}
+              onClick={() => setStep((prev) => Math.max(prev - 1, MIN_STEP))}
+            />
+            <Button
+              className={"bottom-nav-button"}
+              text={"Next"}
+              onClick={() => setStep((prev) => prev + 1)}
+            />
+          </div>
+        )}
       </div>
     </>
   );
