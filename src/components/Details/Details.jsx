@@ -38,7 +38,7 @@ function Details({ character, setCharacter }) {
     <>
       {!showAncestrySelect ? (
         <Card>
-          <div className={slideIn ? "slide-in-top" : ""}>
+          <div className={slideIn ? "slide-in-bottom" : ""}>
             <h2>Character Details</h2>
 
             {!name ? (

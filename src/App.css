@@ -71,14 +71,25 @@
 }
 
 .trait-container {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   border-radius: 8px;
-  padding: 0.5rem;
+  padding: 0.5rem 0.75rem;
   display: flex;
+  align-items: center;
+
+  /* background-color: #2a2a2a; */
+
+  transform: translateY(1px);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .trait-container:hover {
-  background-color: #888;
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45);
+  background-color: #2f2f2f;
 }
 
 .title {
@@ -94,8 +105,8 @@
 }
 
 .trashcan {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   display: block;
 }
 

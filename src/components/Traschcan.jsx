@@ -1,4 +1,4 @@
-import trashcan from "../assets/trashcan_black.svg";
+import trashcan from "../assets/trash.svg";
 
 function Trashcan({ className = "" }) {
   return <img src={trashcan} alt="" className={className} aria-hidden="true" />;
