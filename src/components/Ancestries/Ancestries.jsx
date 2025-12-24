@@ -31,7 +31,7 @@ function Ancestries({ ancestrySelect, handleSelection }) {
     <>
       <div className={slideIn ? "slide-in-left" : "slide-out-left"}>
         <h2>Ancestries</h2>
-        <div className="ancestries-container">
+        <div className="items-container">
           {ancestries.map((ancestry) => (
             <Ancestry
               key={ancestry.id}

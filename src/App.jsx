@@ -3,6 +3,7 @@ import "./index.css";
 import "./App.css";
 import Button from "./components/Button/Button";
 import Details from "./components/Details/Details";
+import Hindrances from "./components/Hindrances/Hindrances";
 
 function App() {
   const MIN_STEP = 1;
@@ -13,7 +14,7 @@ function App() {
       name: "",
       concept: "",
       ancestry: null,
-      hindrances: null,
+      hindrances: [],
       hindrancePoints: 0,
       attributes: {
         agility: 0,
@@ -42,6 +43,10 @@ function App() {
 
         {step === 1 && (
           <Details character={character} setCharacter={setCharacter} />
+        )}
+
+        {step === 2 && (
+          <Hindrances character={character} setCharacter={setCharacter} />
         )}
 
         {step > 0 && (
