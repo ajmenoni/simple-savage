@@ -5,6 +5,8 @@ import Delete from "../Delete/Delete";
 import HindranceSelect from "./HindranceSelect";
 
 import { useToggleSelection } from "../../hooks/useToggleSelection";
+import { useSlide } from "../../hooks/useSlide";
+import SLIDE from "../../constants/slideDirections";
 
 import "../../App.css";
 import "./Hindrances.css";
@@ -12,19 +14,19 @@ import "../../styles/animation.css";
 
 function Hindrances({ character, setCharacter }) {
   const [showItemSelect, setShowItemSelect] = useState(false);
-  const [slideIn, setSlideIn] = useState(true);
   const toggleSelection = useToggleSelection(setCharacter);
 
+  const selectSlide = useSlide(SLIDE.LEFT);
+
   function openSelect() {
-    setSlideIn(true);
+    selectSlide.slideIn(SLIDE.LEFT);
     setShowItemSelect(true);
   }
 
   function handleDone() {
-    setSlideIn(false);
+    selectSlide.slideOut(SLIDE.LEFT);
     setTimeout(() => {
       setShowItemSelect(false);
-      setSlideIn(true);
     }, 300);
   }
 
@@ -48,7 +50,7 @@ function Hindrances({ character, setCharacter }) {
   return (
     <Card>
       {!showItemSelect ? (
-        <div className="slide-in-bottom">
+        <div className="slide slide-in-bottom">
           <h2>Hindrances</h2>
           <div className="items-container">
             {character.hindrances.map((hindrance) => (
@@ -65,7 +67,7 @@ function Hindrances({ character, setCharacter }) {
       ) : (
         <HindranceSelect
           hindrances={character.hindrances}
-          slideIn={slideIn}
+          slideClass={selectSlide.className}
           toggleSelection={toggleSelection}
           onDone={handleDone}
         />

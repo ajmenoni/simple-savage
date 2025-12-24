@@ -5,10 +5,13 @@ import "../../App.css";
 import "../../styles/animation.css";
 import Button from "../Button/Button";
 import { useState } from "react";
+import SLIDE from "../../constants/slideDirections";
+import { useSlide } from "../../hooks/useSlide";
 
 function Ancestries({ ancestrySelect, handleSelection }) {
   const [selectedId, setSelectedId] = useState(null);
-  const [slideIn, setSlideIn] = useState(true);
+  const ancestrySlide = useSlide(SLIDE.LEFT);
+  // const [slideIn, setSlideIn] = useState(true);
 
   function Ancestry({ id, name, description }) {
     const isSelected = id === selectedId;
@@ -29,7 +32,7 @@ function Ancestries({ ancestrySelect, handleSelection }) {
 
   return (
     <>
-      <div className={slideIn ? "slide-in-left" : "slide-out-left"}>
+      <div className={ancestrySlide.className}>
         <h2>Ancestries</h2>
         <div className="items-container">
           {ancestries.map((ancestry) => (
@@ -44,7 +47,7 @@ function Ancestries({ ancestrySelect, handleSelection }) {
         <Button
           text="Done"
           onClick={() => {
-            setSlideIn(false);
+            ancestrySlide.slideOut(SLIDE.LEFT);
             setTimeout(() => {
               ancestrySelect(false);
             }, 300);
