@@ -17,6 +17,10 @@
   --savage-red: #b9472a;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -72,12 +76,14 @@ button {
   max-width: 320px;
   margin: 0.5rem auto;
 }
-button:hover {
-  border-color: var(--savage-yellow);
+
+button:focus {
+  outline: none;
 }
-button:focus,
+
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid var(--savage-yellow);
+  outline-offset: 2px;
 }
 
 .card h2 {
@@ -92,6 +98,7 @@ button:focus-visible {
   width: 90%;
   max-width: 12rem;
   margin: 0;
+  margin-top: 0.5rem;
 }
 
 /* @media (prefers-color-scheme: light) {

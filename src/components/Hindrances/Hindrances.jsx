@@ -4,28 +4,16 @@ import Card from "../Card";
 import Delete from "../Delete/Delete";
 import HindranceSelect from "./HindranceSelect";
 
+import { useToggleSelection } from "../../hooks/useToggleSelection";
+
 import "../../App.css";
 import "./Hindrances.css";
 import "../../styles/animation.css";
 
 function Hindrances({ character, setCharacter }) {
-  const { hindrances = [] } = character;
   const [showItemSelect, setShowItemSelect] = useState(false);
   const [slideIn, setSlideIn] = useState(true);
-
-  function toggleSelection(field, item) {
-    setCharacter((prev) => {
-      const list = prev[field] ?? [];
-      const exists = list.some((i) => i.id === item.id);
-
-      return {
-        ...prev,
-        [field]: exists
-          ? list.filter((i) => i.id !== item.id)
-          : [...list, item],
-      };
-    });
-  }
+  const toggleSelection = useToggleSelection(setCharacter);
 
   function openSelect() {
     setSlideIn(true);
@@ -40,9 +28,14 @@ function Hindrances({ character, setCharacter }) {
     }, 300);
   }
 
-  function CharHindrance({ hindrance }) {
+  function CharHindrance({ hindrance, selectedHindrances }) {
+    const isSelected = selectedHindrances.some((h) => h.id === hindrance.id);
     return (
-      <div className="trait-container trait-container--stacked">
+      <div
+        className={`trait-container trait-container--stacked ${
+          isSelected ? "selected" : ""
+        }`}
+      >
         <span className="title top-title">{hindrance.name}</span>
         <div className="trait-row">
           <span>{hindrance.description}</span>
@@ -57,16 +50,21 @@ function Hindrances({ character, setCharacter }) {
       {!showItemSelect ? (
         <div className="slide-in-bottom">
           <h2>Hindrances</h2>
-
-          {hindrances.map((hindrance) => (
-            <CharHindrance key={hindrance.id} hindrance={hindrance} />
-          ))}
+          <div className="items-container">
+            {character.hindrances.map((hindrance) => (
+              <CharHindrance
+                key={hindrance.id}
+                hindrance={hindrance}
+                selectedHindrances={character.hindrances}
+              />
+            ))}
+          </div>
 
           <Button text="Select Hindrances" onClick={openSelect} />
         </div>
       ) : (
         <HindranceSelect
-          hindrances={hindrances}
+          hindrances={character.hindrances}
           slideIn={slideIn}
           toggleSelection={toggleSelection}
           onDone={handleDone}

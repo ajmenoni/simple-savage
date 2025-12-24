@@ -54,10 +54,9 @@
   cursor: pointer;
 }
 
-.item-card:hover {
+.item-card:not(.selected):hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
-  border-color: var(--savage-yellow);
 }
 
 .item-card.selected {
