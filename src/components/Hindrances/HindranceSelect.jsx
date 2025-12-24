@@ -2,9 +2,9 @@ import hindrancesData from "../../data/hindrances";
 import Button from "../Button/Button";
 import Card from "../Card";
 
-function HindranceSelect({ hindrances, toggleSelection, slideIn, onDone }) {
+function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
   return (
-    <div className={slideIn ? "slide-in-left" : "slide-out-left"}>
+    <div className={slideClass}>
       <div className="items-container">
         {hindrancesData.map((hindrance) => {
           const isSelected = hindrances.some((h) => h.id === hindrance.id);

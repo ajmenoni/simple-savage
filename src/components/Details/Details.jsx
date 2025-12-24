@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import Card from "../Card";
 import Ancestries from "../Ancestries/Ancestries";
 import "./Details.css";
 import Delete from "../Delete/Delete";
 
+import SLIDE from "../../constants/slideDirections";
+import { useSlide } from "../../hooks/useSlide";
+
 function Details({ character, setCharacter }) {
   const [showAncestrySelect, setShowAncestrySelect] = useState(false);
-  const [slideIn, setSlidIn] = useState(true);
+  // const [slideIn, setSlidIn] = useState(true);
   const { name, concept, ancestry } = character;
+
+  const detailsSlide = useSlide(SLIDE.BOTTOM);
+
+  useEffect(() => {
+    detailsSlide.slideIn();
+
+    const timer = setTimeout(() => {
+      detailsSlide.disable();
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   function updateCharacterField(field, value) {
     setCharacter((prev) => ({
@@ -38,7 +53,7 @@ function Details({ character, setCharacter }) {
     <>
       {!showAncestrySelect ? (
         <Card>
-          <div className={slideIn ? "slide-in-bottom" : ""}>
+          <div className={detailsSlide.className}>
             <h2>Character Details</h2>
 
             {!name ? (
@@ -82,7 +97,6 @@ function Details({ character, setCharacter }) {
                   onClick={() => {
                     {
                       setShowAncestrySelect(true);
-                      setSlidIn(false);
                     }
                   }}
                 />
