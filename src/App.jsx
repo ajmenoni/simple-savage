@@ -50,7 +50,7 @@ function App() {
         )}
 
         {step > 0 && (
-          <div className="nav-buttons">
+          <div className="side-by-side-buttons">
             <Button
               className={"bottom-nav-button"}
               text={"Previous"}

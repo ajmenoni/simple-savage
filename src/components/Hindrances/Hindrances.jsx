@@ -38,7 +38,9 @@ function Hindrances({ character, setCharacter }) {
           isSelected ? "selected" : ""
         }`}
       >
-        <span className="title top-title">{hindrance.name}</span>
+        <span className="title top-title">
+          {hindrance.name} ({hindrance.selectedSeverity})
+        </span>
         <div className="trait-row">
           <span>{hindrance.description}</span>
           <Delete onClick={() => toggleSelection("hindrances", hindrance)} />
