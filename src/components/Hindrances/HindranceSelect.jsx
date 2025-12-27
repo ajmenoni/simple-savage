@@ -3,11 +3,16 @@ import hindrancesData from "../../data/hindrances";
 import Button from "../Button/Button";
 import Card from "../Card";
 import Modal from "../Modal/Modal";
+import { searchData } from "../../utils/searchData";
 
 function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
   const [openModal, setOpenModal] = useState(false);
   const [selectedHindrance, setSelectedHindrance] = useState(null);
-  const [severity, setSeverity] = useState("");
+  const [search, setSearch] = useState("");
+  const filteredHindrances = searchData({
+    data: hindrancesData,
+    search,
+  });
 
   function getSeverity(severity) {
     const result = severity.join(" / ");
@@ -23,15 +28,21 @@ function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
         ...item,
         selectedSeverity: item.severity[0],
       });
-      console.log(`from checkSeverity${hindrances}`);
     }
   }
 
   return (
     <div>
       <div className={slideClass}>
+        <input
+          type="text"
+          className="search"
+          placeholder="Search name or description"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <div className="items-container">
-          {hindrancesData.map((hindrance) => {
+          {filteredHindrances.map((hindrance) => {
             const isSelected = hindrances.some((h) => h.id === hindrance.id);
 
             return (
