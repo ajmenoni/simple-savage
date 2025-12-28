@@ -1,0 +1,51 @@
+fieldset {
+  all: unset;
+}
+
+.trait-rows {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.trait-name {
+  margin-right: 2rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.dice-toggle {
+  padding-left: 1.75rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 2.2rem;
+}
+
+input[type="radio"]:checked + .dice-toggle {
+  background-image: url("../assets/dice/d6g.svg");
+}
+
+.d4 {
+  background-image: url("../assets/dice/d4g.svg");
+}
+
+.d6 {
+  background-image: url("../assets/dice/d6g.svg");
+}
+
+.d8 {
+  background-image: url("../assets/dice/d8g.svg");
+}
+
+.d10 {
+  background-image: url("../assets/dice/d10g.svg");
+}
+
+.d12 {
+  background-image: url("../assets/dice/d12g.svg");
+}
