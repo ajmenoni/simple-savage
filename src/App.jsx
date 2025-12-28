@@ -4,6 +4,7 @@ import "./App.css";
 import Button from "./components/Button/Button";
 import Details from "./components/Details/Details";
 import Hindrances from "./components/Hindrances/Hindrances";
+import Attributes from "./components/Attributes/Attributes";
 
 function App() {
   const MIN_STEP = 1;
@@ -48,6 +49,8 @@ function App() {
         {step === 2 && (
           <Hindrances character={character} setCharacter={setCharacter} />
         )}
+
+        {step === 3 && <Attributes />}
 
         {step > 0 && (
           <div className="side-by-side-buttons">
