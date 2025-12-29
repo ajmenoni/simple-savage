@@ -1,8 +1,11 @@
 import React from "react";
 
-function Card({ children, className, onClick }) {
+function Card({ children, className, onClick, padding = "default" }) {
   return (
-    <div className={`card ${className || ""}`} onClick={onClick}>
+    <div
+      className={`card card--${padding} ${className || ""}`}
+      onClick={onClick}
+    >
       {children}
     </div>
   );

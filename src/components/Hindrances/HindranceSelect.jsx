@@ -19,10 +19,17 @@ function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
     return result;
   }
 
-  function checkSeverity(field, item) {
+  function checkSeverity(field, item, isSelected) {
     if (item.severity.length > 1) {
       setSelectedHindrance(item);
-      setOpenModal(true);
+      if (isSelected) {
+        toggleSelection(field, {
+          ...item,
+          selectedSeverity: item.severity[0],
+        });
+      } else {
+        setOpenModal(true);
+      }
     } else {
       toggleSelection(field, {
         ...item,
@@ -50,7 +57,7 @@ function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
                 key={hindrance.id}
                 className={`item-card ${isSelected ? "selected" : ""}`}
                 onClick={() => {
-                  checkSeverity("hindrances", hindrance);
+                  checkSeverity("hindrances", hindrance, isSelected);
                 }}
               >
                 <div className="item-card-title">

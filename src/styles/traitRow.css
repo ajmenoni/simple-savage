@@ -1,0 +1,75 @@
+/* * {
+  outline: 1px solid red;
+} */
+
+fieldset {
+  all: unset;
+}
+
+.trait-row {
+  display: grid;
+  grid-template-columns: minmax(5rem, 0.5fr) repeat(5, minmax(2rem, 1fr));
+  align-items: center;
+}
+
+.trait-name {
+  justify-self: flex-start;
+}
+
+.dice-row {
+  display: contents;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.dice-toggle {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  cursor: pointer;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.d4 {
+  background-image: url("../assets/dice/d4g.svg");
+}
+
+input[type="radio"]:checked + .d4 {
+  background-image: url("../assets/dice/d4o.svg");
+}
+
+.d6 {
+  background-image: url("../assets/dice/d6g.svg");
+}
+
+input[type="radio"]:checked + .d6 {
+  background-image: url("../assets/dice/d6o.svg");
+}
+.d8 {
+  background-image: url("../assets/dice/d8g.svg");
+}
+
+input[type="radio"]:checked + .d8 {
+  background-image: url("../assets/dice/d8o.svg");
+}
+
+.d10 {
+  background-image: url("../assets/dice/d10g.svg");
+}
+
+input[type="radio"]:checked + .d10 {
+  background-image: url("../assets/dice/d10o.svg");
+}
+
+.d12 {
+  background-image: url("../assets/dice/d12g.svg");
+}
+
+input[type="radio"]:checked + .d12 {
+  background-image: url("../assets/dice/d12o.svg");
+}

@@ -24,7 +24,7 @@
 .card {
   background-color: #1f1f1f;
   border-radius: 12px;
-  padding: 2rem;
+
   margin-top: 1.5rem;
   width: 100%;
   max-width: 400px;
@@ -33,6 +33,14 @@
 
   min-height: auto;
   height: auto;
+}
+
+.card--default {
+  padding: 2rem;
+}
+
+.card--compact {
+  padding: 0.5rem 0.75rem;
 }
 
 .card:hover {
