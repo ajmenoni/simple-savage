@@ -1,19 +1,30 @@
 import Card from "../Card";
 import Attribute from "./Attribute";
+import PointDisplay from "../PointDisplay/PointDisplay";
 import attributes from "../../data/attributes";
+import { calcAttributePoints } from "../../utils/calcAttributePoints";
 
 import "../../styles/traitRow.css";
 
 function Attributes({ character, setCharacter }) {
   function setAttribute(attributeId, die) {
-    setCharacter((prev) => ({
-      ...prev,
-      attributes: {
+    setCharacter((prev) => {
+      const updatedAttributes = {
         ...prev.attributes,
         [attributeId]: die,
-      },
-    }));
+      };
+
+      const spent = calcAttributePoints(updatedAttributes);
+
+      return {
+        ...prev,
+        attributes: updatedAttributes,
+        attributePointsSpent: spent,
+      };
+    });
   }
+
+  console.log(character.attributePointsSpent);
 
   return (
     <Card padding="compact">
@@ -30,6 +41,7 @@ function Attributes({ character, setCharacter }) {
           ))}
         </div>
       </div>
+      <PointDisplay attributePoints={character.attributePointsSpent} />
     </Card>
   );
 }

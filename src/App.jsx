@@ -22,6 +22,7 @@ function App() {
       strength: "d4",
       vigor: "d4",
     },
+    attributePointsSpent: 0,
     skills: {
       athletics: 0,
       commonKnowledge: 0,
