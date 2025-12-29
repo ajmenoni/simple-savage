@@ -7,11 +7,16 @@ import Button from "../Button/Button";
 import { useState } from "react";
 import SLIDE from "../../constants/slideDirections";
 import { useSlide } from "../../hooks/useSlide";
+import { searchData } from "../../utils/searchData";
 
 function Ancestries({ ancestrySelect, handleSelection }) {
   const [selectedId, setSelectedId] = useState(null);
   const ancestrySlide = useSlide(SLIDE.LEFT);
-  // const [slideIn, setSlideIn] = useState(true);
+  const [search, setSearch] = useState("");
+  const filteredAncestries = searchData({
+    data: ancestries,
+    search,
+  });
 
   function Ancestry({ id, name, description }) {
     const isSelected = id === selectedId;
@@ -34,8 +39,15 @@ function Ancestries({ ancestrySelect, handleSelection }) {
     <>
       <div className={ancestrySlide.className}>
         <h2>Ancestries</h2>
+        <input
+          type="text"
+          className="search"
+          placeholder="Search name or description"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <div className="items-container">
-          {ancestries.map((ancestry) => (
+          {filteredAncestries.map((ancestry) => (
             <Ancestry
               key={ancestry.id}
               id={ancestry.id}
