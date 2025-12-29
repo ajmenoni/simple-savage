@@ -1,5 +1,5 @@
 import Card from "../Card";
-import Attribute from "./Attribute";
+import TraitRow from "../TraitRow/TraitRow";
 import PointDisplay from "../PointDisplay/PointDisplay";
 import attributes from "../../data/attributes";
 import { calcAttributePoints } from "../../utils/calcAttributePoints";
@@ -30,11 +30,11 @@ function Attributes({ character, setCharacter }) {
         <h2>Attributes</h2>
         <div className="trait-rows">
           {attributes.map((attribute) => (
-            <Attribute
+            <TraitRow
               key={attribute.id}
-              character={character}
-              attribute={attribute}
-              setAttribute={setAttribute}
+              characterTraits={character.attributes}
+              trait={attribute}
+              setTrait={setAttribute}
             />
           ))}
         </div>

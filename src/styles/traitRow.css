@@ -6,13 +6,20 @@ fieldset {
   all: unset;
 }
 
+.trait-rows {
+  max-height: 375px;
+  overflow: auto;
+  padding: 1rem;
+}
+
 .trait-row {
   display: grid;
-  grid-template-columns: minmax(5rem, 0.5fr) repeat(5, minmax(2rem, 1fr));
+  grid-template-columns: minmax(3rem, 4rem) repeat(5, minmax(2rem, 1fr));
   align-items: center;
 }
 
 .trait-name {
+  font-size: small;
   justify-self: flex-start;
 }
 

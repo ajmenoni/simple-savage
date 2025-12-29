@@ -5,6 +5,7 @@ import Button from "./components/Button/Button";
 import Details from "./components/Details/Details";
 import Hindrances from "./components/Hindrances/Hindrances";
 import Attributes from "./components/Attributes/Attributes";
+import Skills from "./components/Skills/Skills";
 
 function App() {
   const MIN_STEP = 1;
@@ -24,12 +25,13 @@ function App() {
     },
     attributePointsSpent: 0,
     skills: {
-      athletics: 0,
-      commonKnowledge: 0,
-      notice: 0,
-      persuasion: 0,
-      stealth: 0,
+      athletics: "d4",
+      commonKnowledge: "d4",
+      notice: "d4",
+      persuasion: "d4",
+      stealth: "d4",
     },
+    skillPointsSpent: 0,
   });
 
   return (
@@ -50,6 +52,10 @@ function App() {
 
         {step === 3 && (
           <Attributes character={character} setCharacter={setCharacter} />
+        )}
+
+        {step === 4 && (
+          <Skills character={character} setCharacter={setCharacter} />
         )}
 
         {step > 0 && (
