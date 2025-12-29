@@ -9,30 +9,27 @@ import Attributes from "./components/Attributes/Attributes";
 function App() {
   const MIN_STEP = 1;
   const [step, setStep] = useState(0);
-  const [character, setCharacter] = useState(
-    // 0 = d4, 1 = d6, etc.
-    {
-      name: "",
-      concept: "",
-      ancestry: null,
-      hindrances: [],
-      hindrancePoints: 0,
-      attributes: {
-        agility: 0,
-        smarts: 0,
-        spirit: 0,
-        strength: 0,
-        vigor: 0,
-      },
-      skills: {
-        athletics: 0,
-        commonKnowledge: 0,
-        notice: 0,
-        persuasion: 0,
-        stealth: 0,
-      },
-    }
-  );
+  const [character, setCharacter] = useState({
+    name: "",
+    concept: "",
+    ancestry: null,
+    hindrances: [],
+    hindrancePoints: 0,
+    attributes: {
+      agility: "d4",
+      smarts: "d4",
+      spirit: "d4",
+      strength: "d4",
+      vigor: "d4",
+    },
+    skills: {
+      athletics: 0,
+      commonKnowledge: 0,
+      notice: 0,
+      persuasion: 0,
+      stealth: 0,
+    },
+  });
 
   return (
     <>
@@ -50,7 +47,9 @@ function App() {
           <Hindrances character={character} setCharacter={setCharacter} />
         )}
 
-        {step === 3 && <Attributes />}
+        {step === 3 && (
+          <Attributes character={character} setCharacter={setCharacter} />
+        )}
 
         {step > 0 && (
           <div className="side-by-side-buttons">

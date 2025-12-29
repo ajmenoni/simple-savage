@@ -1,6 +1,7 @@
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
+
 fieldset {
   all: unset;
 }
@@ -24,8 +25,8 @@ input[type="radio"] {
 }
 
 .dice-toggle {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
 
   cursor: pointer;
 
@@ -34,26 +35,41 @@ input[type="radio"] {
   background-size: contain;
 }
 
-input[type="radio"]:checked + .dice-toggle {
-  background-image: url("../assets/dice/d6g.svg");
-}
-
 .d4 {
   background-image: url("../assets/dice/d4g.svg");
+}
+
+input[type="radio"]:checked + .d4 {
+  background-image: url("../assets/dice/d4o.svg");
 }
 
 .d6 {
   background-image: url("../assets/dice/d6g.svg");
 }
 
+input[type="radio"]:checked + .d6 {
+  background-image: url("../assets/dice/d6o.svg");
+}
 .d8 {
   background-image: url("../assets/dice/d8g.svg");
+}
+
+input[type="radio"]:checked + .d8 {
+  background-image: url("../assets/dice/d8o.svg");
 }
 
 .d10 {
   background-image: url("../assets/dice/d10g.svg");
 }
 
+input[type="radio"]:checked + .d10 {
+  background-image: url("../assets/dice/d10o.svg");
+}
+
 .d12 {
   background-image: url("../assets/dice/d12g.svg");
+}
+
+input[type="radio"]:checked + .d12 {
+  background-image: url("../assets/dice/d12o.svg");
 }
