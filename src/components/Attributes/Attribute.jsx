@@ -3,7 +3,7 @@ import React from "react";
 function Attribute({ attribute, setAttribute, character }) {
   return (
     <fieldset className="trait-row" key={attribute.id}>
-      <span className="trait-name">{attribute.name}</span>
+      <span className="trait-name title">{attribute.name}</span>
       <div className="dice-row">
         {["d4", "d6", "d8", "d10", "d12"].map((die) => (
           <React.Fragment key={`${attribute.id}-${die}`}>
