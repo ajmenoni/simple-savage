@@ -24,8 +24,6 @@ function Attributes({ character, setCharacter }) {
     });
   }
 
-  console.log(character.attributePointsSpent);
-
   return (
     <Card padding="compact">
       <div className="slide slide-in-bottom">
