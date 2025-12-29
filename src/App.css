@@ -31,7 +31,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
 
-  min-height: auto;
+  min-height: 500px;
   height: auto;
 }
 
@@ -75,6 +75,10 @@
 .item-card-title {
   font-weight: bold;
   color: var(--savage-orange);
+}
+
+.card .item-card {
+  min-height: auto;
 }
 
 .trait-container {
