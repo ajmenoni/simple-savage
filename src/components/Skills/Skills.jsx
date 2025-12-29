@@ -1,26 +1,23 @@
 import Card from "../Card";
 import TraitRow from "../TraitRow/TraitRow";
 import PointDisplay from "../PointDisplay/PointDisplay";
-import skills from "../../data/skills";
-import { calcAttributePoints } from "../../utils/calcAttributePoints";
+import { calcSkillPoints } from "../../utils/calcSkillPoints";
 
 import "../../styles/traitRow.css";
 
 function Skills({ character, setCharacter }) {
   function setSkill(skillId, die) {
     setCharacter((prev) => {
-      const updatedSkills = {
-        ...prev.skills,
-        [skillId]: die,
-      };
+      const updatedSkills = prev.skills.map((skill) =>
+        skill.id === skillId ? { ...skill, die } : skill
+      );
 
-      const spent = calcAttributePoints(updatedSkills);
-      console.log(character.skills);
+      const spent = calcSkillPoints(updatedSkills);
 
       return {
         ...prev,
         skills: updatedSkills,
-        attributePointsSpent: spent,
+        skillPointsSpent: spent,
       };
     });
   }
@@ -29,17 +26,19 @@ function Skills({ character, setCharacter }) {
     <Card padding="compact">
       <div className="slide slide-in-bottom">
         <h2>Skills</h2>
+
         <div className="trait-rows">
-          {skills.map((skill) => (
+          {character.skills.map((skill) => (
             <TraitRow
               key={skill.id}
-              characterTraits={character.skills}
               trait={skill}
-              setTrait={setSkill}
+              value={skill.die}
+              onChange={setSkill}
             />
           ))}
         </div>
       </div>
+
       <PointDisplay attributePoints={character.skillPointsSpent} />
     </Card>
   );

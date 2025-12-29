@@ -24,13 +24,44 @@ function App() {
       vigor: "d4",
     },
     attributePointsSpent: 0,
-    skills: {
-      athletics: "d4",
-      commonKnowledge: "d4",
-      notice: "d4",
-      persuasion: "d4",
-      stealth: "d4",
-    },
+    skills: [
+      {
+        id: "athletics",
+        name: "Athletics",
+        linkedAttribute: "agility",
+        die: "d4",
+        description:
+          "Overall athletic coordination and ability. Climbing, jumping, swimming, etc.",
+      },
+      {
+        id: "common_knowledge",
+        name: "Common Knowledge",
+        linkedAttribute: "smarts",
+        die: "d4",
+        description: "General knowledge of a character’s world.",
+      },
+      {
+        id: "notice",
+        name: "Notice",
+        linkedAttribute: "smarts",
+        die: "d4",
+        description: "General awareness and perception.",
+      },
+      {
+        id: "persuasion",
+        name: "Persuasion",
+        linkedAttribute: "spirit",
+        die: "d4",
+        description: "Convincing others to do what you want.",
+      },
+      {
+        id: "stealth",
+        name: "Stealth",
+        linkedAttribute: "agility",
+        die: "d4",
+        description: "Sneaking and hiding.",
+      },
+    ],
     skillPointsSpent: 0,
   });
 
