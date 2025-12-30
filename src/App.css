@@ -182,6 +182,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-height: 375px;
+  max-height: 23.4375rem;
   overflow-y: auto;
+}
+
+.items-container.skills {
+  max-height: 36rem;
 }

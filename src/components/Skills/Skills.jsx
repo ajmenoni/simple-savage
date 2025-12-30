@@ -12,13 +12,45 @@ import { useState } from "react";
 
 function Skills({ character, setCharacter }) {
   const selectSlide = useSlide(SLIDE.LEFT);
-  const [showItemSelect, setShowItemSelect] = useState(true);
+  const [showItemSelect, setShowItemSelect] = useState(false);
+
+  function openSelect() {
+    selectSlide.slideIn(SLIDE.LEFT);
+    setShowItemSelect(true);
+  }
+
+  function handleDone() {
+    selectSlide.slideOut(SLIDE.LEFT);
+    setTimeout(() => {
+      setShowItemSelect(false);
+    }, 100);
+  }
 
   function setSkill(skillId, die) {
     setCharacter((prev) => {
       const updatedSkills = prev.skills.map((skill) =>
         skill.id === skillId ? { ...skill, die } : skill
       );
+
+      const spent = calcSkillPoints(updatedSkills);
+
+      return {
+        ...prev,
+        skills: updatedSkills,
+        skillPointsSpent: spent,
+      };
+    });
+  }
+
+  function addSkill(skill) {
+    setCharacter((prev) => {
+      const updatedSkills = [
+        ...prev.skills,
+        {
+          ...skill,
+          die: "d4",
+        },
+      ];
 
       const spent = calcSkillPoints(updatedSkills);
 
@@ -50,7 +82,7 @@ function Skills({ character, setCharacter }) {
           <div className="skill-buttons">
             <Button
               text={"Add Skill"}
-              onClick={() => {}}
+              onClick={openSelect}
               className={"add-skill"}
             />
           </div>
@@ -58,23 +90,36 @@ function Skills({ character, setCharacter }) {
           <PointDisplay attributePoints={character.skillPointsSpent} />
         </div>
       ) : (
-        <SkillsSelect />
+        <SkillsSelect
+          slideClass={selectSlide.className}
+          onDone={handleDone}
+          characterSkills={character.skills}
+          addSkill={addSkill}
+        />
       )}
     </Card>
   );
 
-  function SkillsSelect() {
+  function SkillsSelect({ slideClass, onDone, characterSkills, addSkill }) {
+    // move to funtion
+    const characterSkillsIds = characterSkills.map((skill) => skill.id);
+    const filteredSkills = skillsData.filter(
+      (skill) => !characterSkillsIds.includes(skill.id)
+    );
+
     return (
       <div>
-        <div className="">
-          <div className="items-container">
-            {skillsData.map((skill) => {
+        <div className={slideClass}>
+          <div className="items-container skills">
+            {filteredSkills.map((skill) => {
               return (
                 <Card
                   key={skill.id}
                   className={`item-card`}
                   onClick={() => {
-                    alert("clicked");
+                    addSkill(skill);
+                    // Should select and close the modal, set dice vaue as d4
+                    onDone();
                   }}
                 >
                   <div className="item-card-title">
