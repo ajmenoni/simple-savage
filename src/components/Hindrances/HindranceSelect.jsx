@@ -43,6 +43,7 @@ function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
       <div className={slideClass}>
         <input
           type="text"
+          id="search"
           className="search"
           placeholder="Search name or description"
           value={search}

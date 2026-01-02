@@ -1,10 +1,17 @@
 import { useState } from "react";
 import "./index.css";
 import "./App.css";
+import skills from "./data/skills";
 import Button from "./components/Button/Button";
 import Details from "./components/Details/Details";
 import Hindrances from "./components/Hindrances/Hindrances";
 import Attributes from "./components/Attributes/Attributes";
+import Skills from "./components/Skills/Skills";
+const coreSkills = skills.filter((skill) => skill.coreSkill === true);
+const initCoreSkills = coreSkills.map((skill) => ({
+  ...skill,
+  die: "d4",
+}));
 
 function App() {
   const MIN_STEP = 1;
@@ -23,13 +30,8 @@ function App() {
       vigor: "d4",
     },
     attributePointsSpent: 0,
-    skills: {
-      athletics: 0,
-      commonKnowledge: 0,
-      notice: 0,
-      persuasion: 0,
-      stealth: 0,
-    },
+    skills: initCoreSkills,
+    skillPointsSpent: 0,
   });
 
   return (
@@ -50,6 +52,10 @@ function App() {
 
         {step === 3 && (
           <Attributes character={character} setCharacter={setCharacter} />
+        )}
+
+        {step === 4 && (
+          <Skills character={character} setCharacter={setCharacter} />
         )}
 
         {step > 0 && (
