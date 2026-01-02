@@ -1,11 +1,17 @@
 import { useState } from "react";
 import "./index.css";
 import "./App.css";
+import skills from "./data/skills";
 import Button from "./components/Button/Button";
 import Details from "./components/Details/Details";
 import Hindrances from "./components/Hindrances/Hindrances";
 import Attributes from "./components/Attributes/Attributes";
 import Skills from "./components/Skills/Skills";
+const coreSkills = skills.filter((skill) => skill.coreSkill === true);
+const initCoreSkills = coreSkills.map((skill) => ({
+  ...skill,
+  die: "d4",
+}));
 
 function App() {
   const MIN_STEP = 1;
@@ -24,46 +30,11 @@ function App() {
       vigor: "d4",
     },
     attributePointsSpent: 0,
-    skills: [
-      {
-        id: "athletics",
-        name: "Athletics",
-        linkedAttribute: "agility",
-        die: "d4",
-        description:
-          "Overall athletic coordination and ability. Climbing, jumping, swimming, etc.",
-      },
-      {
-        id: "common_knowledge",
-        name: "Common Knowledge",
-        linkedAttribute: "smarts",
-        die: "d4",
-        description: "General knowledge of a character’s world.",
-      },
-      {
-        id: "notice",
-        name: "Notice",
-        linkedAttribute: "smarts",
-        die: "d4",
-        description: "General awareness and perception.",
-      },
-      {
-        id: "persuasion",
-        name: "Persuasion",
-        linkedAttribute: "spirit",
-        die: "d4",
-        description: "Convincing others to do what you want.",
-      },
-      {
-        id: "stealth",
-        name: "Stealth",
-        linkedAttribute: "agility",
-        die: "d4",
-        description: "Sneaking and hiding.",
-      },
-    ],
+    skills: initCoreSkills,
     skillPointsSpent: 0,
   });
+
+  console.log(character.skills);
 
   return (
     <>

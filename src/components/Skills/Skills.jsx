@@ -107,6 +107,8 @@ function Skills({ character, setCharacter }) {
       (skill) => !characterSkillsIds.includes(skill.id)
     );
 
+    console.log(character.skills);
+
     return (
       <div>
         <div className={slideClass}>
@@ -118,7 +120,6 @@ function Skills({ character, setCharacter }) {
                   className={`item-card`}
                   onClick={() => {
                     addSkill(skill);
-                    // Should select and close the modal, set dice vaue as d4
                     onDone();
                   }}
                 >
