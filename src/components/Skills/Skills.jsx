@@ -32,7 +32,7 @@ function Skills({ character, setCharacter }) {
         skill.id === skillId ? { ...skill, die } : skill
       );
 
-      const spent = calcSkillPoints(updatedSkills);
+      const spent = calcSkillPoints(updatedSkills, prev.attributes);
 
       return {
         ...prev,
@@ -52,7 +52,7 @@ function Skills({ character, setCharacter }) {
         },
       ];
 
-      const spent = calcSkillPoints(updatedSkills);
+      const spent = calcSkillPoints(updatedSkills, prev.attributes);
 
       return {
         ...prev,
@@ -106,8 +106,6 @@ function Skills({ character, setCharacter }) {
     const filteredSkills = skillsData.filter(
       (skill) => !characterSkillsIds.includes(skill.id)
     );
-
-    console.log(character.skills);
 
     return (
       <div>

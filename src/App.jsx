@@ -34,8 +34,6 @@ function App() {
     skillPointsSpent: 0,
   });
 
-  console.log(character.skills);
-
   return (
     <>
       <div className="app-container">

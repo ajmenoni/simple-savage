@@ -3,6 +3,7 @@ import TraitRow from "../TraitRow/TraitRow";
 import PointDisplay from "../PointDisplay/PointDisplay";
 import attributes from "../../data/attributes";
 import { calcAttributePoints } from "../../utils/calcAttributePoints";
+import { calcSkillPoints } from "../../utils/calcSkillPoints";
 
 import "../../styles/traitRow.css";
 
@@ -15,11 +16,16 @@ function Attributes({ character, setCharacter }) {
       };
 
       const spent = calcAttributePoints(updatedAttributes);
+      const recalculatedSkillPoints = calcSkillPoints(
+        character.skills,
+        updatedAttributes
+      );
 
       return {
         ...prev,
         attributes: updatedAttributes,
         attributePointsSpent: spent,
+        skillPointsSpent: recalculatedSkillPoints,
       };
     });
   }
