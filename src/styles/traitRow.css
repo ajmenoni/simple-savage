@@ -19,6 +19,13 @@ fieldset {
   margin-bottom: 0.5rem;
 }
 
+.trait-name,
+.dice-row,
+.dice-toggle {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .trait-name {
   font-size: small;
   justify-self: flex-start;
