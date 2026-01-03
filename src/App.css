@@ -43,11 +43,6 @@
   padding: 0.5rem 0.75rem;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
-}
-
 .item-card {
   width: 100%;
   padding: 0.5rem 1rem;
