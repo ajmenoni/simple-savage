@@ -5,6 +5,9 @@ export default function useLongPress(onLongPress, delay = 500) {
 
   const start = () => {
     timeRef.current = setTimeout(() => {
+      if (navigator.vibrate) {
+        navigator.vibrate(25);
+      }
       onLongPress();
     }, delay);
   };
