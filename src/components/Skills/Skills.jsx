@@ -15,6 +15,7 @@ function Skills({ character, setCharacter }) {
   const selectSlide = useSlide(SLIDE.LEFT);
   const [showItemSelect, setShowItemSelect] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [skillToRemove, setSkillToRemove] = useState(null);
 
   function openSelect() {
     selectSlide.slideIn(SLIDE.LEFT);
@@ -79,7 +80,18 @@ function Skills({ character, setCharacter }) {
   }
 
   function handleLongPress(skill) {
-    removeSkill(skill.id);
+    setSkillToRemove(skill);
+    setShowModal(true);
+  }
+
+  function handleRemoveSkill(skillId) {
+    removeSkill(skillId);
+    setSkillToRemove(null);
+    setShowModal(false);
+  }
+
+  function handleModalClose() {
+    setShowModal(false);
   }
 
   return (
@@ -118,7 +130,14 @@ function Skills({ character, setCharacter }) {
           addSkill={addSkill}
         />
       )}
-      {showModal && <Modal />}
+      {showModal && (
+        <Modal
+          title={`Remove ${skillToRemove.name}?`}
+          type={"removeSkillModal"}
+          onCancel={handleModalClose}
+          onSelect={() => handleRemoveSkill(skillToRemove.id)}
+        />
+      )}
     </Card>
   );
 

@@ -1,5 +1,6 @@
 import "./Modal.css";
 import SeverityModal from "./SeverityModal";
+import RemoveSkillModal from "./RemoveSkillModal";
 
 export default function Modal({ title, type, onCancel, onSelect }) {
   return (
@@ -10,10 +11,15 @@ export default function Modal({ title, type, onCancel, onSelect }) {
         </div>
         <div className="modal-body">
           {type === "severityModal" && <SeverityModal onSelect={onSelect} />}
+          {type === "removeSkillModal" && (
+            <RemoveSkillModal onSelect={onSelect} onCancel={onCancel} />
+          )}
         </div>
-        <div className="modal-footer">
-          <button onClick={onCancel}>Cancel</button>
-        </div>
+        {type === "severityModal" && (
+          <div className="modal-footer">
+            <button onClick={onCancel}>Cancel</button>
+          </div>
+        )}
       </div>
     </div>
   );
