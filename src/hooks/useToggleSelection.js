@@ -5,7 +5,7 @@ export function useToggleSelection(setCharacter) {
     (field, item) => {
       setCharacter((prev) => {
         const list = Array.isArray(prev[field]) ? prev[field] : [];
-        const exists = list.some((h) => h.id === item.id);
+        const exists = list.some((i) => i.id === item.id);
 
         return {
           ...prev,

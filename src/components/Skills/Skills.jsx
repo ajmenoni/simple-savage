@@ -2,6 +2,7 @@ import Card from "../Card";
 import TraitRow from "../TraitRow/TraitRow";
 import PointDisplay from "../PointDisplay/PointDisplay";
 import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 import { useSlide } from "../../hooks/useSlide";
 import SLIDE from "../../constants/slideDirections";
 import { calcSkillPoints } from "../../utils/calcSkillPoints";
@@ -13,6 +14,7 @@ import { useState } from "react";
 function Skills({ character, setCharacter }) {
   const selectSlide = useSlide(SLIDE.LEFT);
   const [showItemSelect, setShowItemSelect] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   function openSelect() {
     selectSlide.slideIn(SLIDE.LEFT);
@@ -62,6 +64,24 @@ function Skills({ character, setCharacter }) {
     });
   }
 
+  function removeSkill(skillId) {
+    setCharacter((prev) => {
+      const updatedSkills = prev.skills.filter((skill) => skill.id !== skillId);
+
+      const spent = calcSkillPoints(updatedSkills, prev.attributes);
+
+      return {
+        ...prev,
+        skills: updatedSkills,
+        skillPointsSpent: spent,
+      };
+    });
+  }
+
+  function handleLongPress(skill) {
+    removeSkill(skill.id);
+  }
+
   return (
     <Card padding="compact">
       {!showItemSelect ? (
@@ -75,6 +95,7 @@ function Skills({ character, setCharacter }) {
                 trait={skill}
                 value={skill.die}
                 onChange={setSkill}
+                onLongPress={!skill.coreSkill ? handleLongPress : null}
               />
             ))}
           </div>
@@ -97,6 +118,7 @@ function Skills({ character, setCharacter }) {
           addSkill={addSkill}
         />
       )}
+      {showModal && <Modal />}
     </Card>
   );
 

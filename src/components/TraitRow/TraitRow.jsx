@@ -1,9 +1,16 @@
 import React from "react";
+import useLongPress from "../../hooks/useLongPress";
 
-function TraitRow({ trait, value, onChange }) {
+function TraitRow({ trait, value, onChange, onLongPress }) {
+  const pressHandler = onLongPress
+    ? useLongPress(() => onLongPress(trait))
+    : {};
+
   return (
     <fieldset className="trait-row">
-      <span className="trait-name title">{trait.name}</span>
+      <span className="trait-name title" {...pressHandler}>
+        {trait.name}
+      </span>
 
       <div className="dice-row">
         {["d4", "d6", "d8", "d10", "d12"].map((die) => (
