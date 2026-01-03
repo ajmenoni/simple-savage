@@ -16,6 +16,7 @@ fieldset {
   display: grid;
   grid-template-columns: minmax(3rem, 4rem) repeat(5, minmax(2rem, 1fr));
   align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .trait-name {
