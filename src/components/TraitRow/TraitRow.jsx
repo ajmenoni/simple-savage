@@ -9,7 +9,7 @@ function TraitRow({ trait, value, onChange, onLongPress }) {
   return (
     <fieldset className="trait-row">
       <span className="trait-name title" {...pressHandler}>
-        {trait.name}
+        {trait.name} {trait.linkedAttribute && `(${trait.linkedAttribute})`}
       </span>
 
       <div className="dice-row">
