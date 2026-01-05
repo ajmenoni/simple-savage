@@ -19,6 +19,20 @@ fieldset {
   margin-bottom: 0.5rem;
 }
 
+.remove-skill {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .trait-row {
+    grid-template-columns: minmax(3rem, 4rem) repeat(6, minmax(2rem, 1fr));
+  }
+
+  .trait-row .remove-skill {
+    display: inline-block;
+  }
+}
+
 .trait-name,
 .dice-row,
 .dice-toggle {

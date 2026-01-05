@@ -108,6 +108,7 @@ function Skills({ character, setCharacter }) {
                 value={skill.die}
                 onChange={setSkill}
                 onLongPress={!skill.coreSkill ? handleLongPress : null}
+                handleRemove={removeSkill}
               />
             ))}
           </div>

@@ -6,6 +6,7 @@ const skills = [
     description:
       "Knowledge of liberal arts, social sciences, literature, history, etc.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "athletics",
@@ -14,6 +15,7 @@ const skills = [
     description:
       "Overall athletic coordination and ability. Climbing, jumping, swimming, etc.",
     coreSkill: true,
+    traitType: "skill",
   },
   {
     id: "battle",
@@ -21,6 +23,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Strategy, tactics, and understanding military operations.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "boating",
@@ -28,6 +31,7 @@ const skills = [
     linkedAttribute: "agility",
     description: "Ability to sail or pilot a boat or other watercraft.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "commonKnowledge",
@@ -35,6 +39,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "General knowledge of a character’s world.",
     coreSkill: true,
+    traitType: "skill",
   },
   {
     id: "driving",
@@ -42,6 +47,7 @@ const skills = [
     linkedAttribute: "agility",
     description: "The ability to control and operate ground vehicles.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "electronics",
@@ -49,6 +55,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "The use of electronic devices and systems.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "faith",
@@ -56,6 +63,7 @@ const skills = [
     linkedAttribute: "spirit",
     description: "Arcane skill for Arcane Background (Miracles).",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "fighting",
@@ -63,6 +71,7 @@ const skills = [
     linkedAttribute: "agility",
     description: "Skill in armed and unarmed combat.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "focus",
@@ -70,6 +79,7 @@ const skills = [
     linkedAttribute: "spirit",
     description: "Arcane skill for Arcane Background (Gifted).",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "gambling",
@@ -77,6 +87,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Skill and familiarity with games of chance.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "hacking",
@@ -84,6 +95,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Coding, programming, and breaking into computer systems.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "healing",
@@ -92,6 +104,7 @@ const skills = [
     description:
       "Treating wounds, diseases, and deciphering forensic evidence.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "intimidation",
@@ -99,6 +112,7 @@ const skills = [
     linkedAttribute: "spirit",
     description: "Threatening others into doing what you want.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "language",
@@ -106,6 +120,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Knowledge and fluency in a particular language.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "notice",
@@ -113,6 +128,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "General awareness and perception.",
     coreSkill: true,
+    traitType: "skill",
   },
   {
     id: "occult",
@@ -120,6 +136,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Knowledge of supernatural events, creatures, and lore.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "performance",
@@ -127,6 +144,7 @@ const skills = [
     linkedAttribute: "spirit",
     description: "Singing, dancing, acting, or public expression.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "persuasion",
@@ -134,6 +152,7 @@ const skills = [
     linkedAttribute: "spirit",
     description: "Convincing others to do what you want.",
     coreSkill: true,
+    traitType: "skill",
   },
   {
     id: "piloting",
@@ -141,6 +160,7 @@ const skills = [
     linkedAttribute: "agility",
     description: "Operating vehicles in three dimensions such as aircraft.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "psionics",
@@ -148,6 +168,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Arcane skill for Arcane Background (Psionics).",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "repair",
@@ -155,6 +176,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Fixing mechanical and electrical gadgets.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "research",
@@ -162,6 +184,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Finding written information from various sources.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "riding",
@@ -169,6 +192,7 @@ const skills = [
     linkedAttribute: "agility",
     description: "Skill in mounting and riding a tamed beast.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "science",
@@ -176,6 +200,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Knowledge of scientific fields such as biology or chemistry.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "shooting",
@@ -183,6 +208,7 @@ const skills = [
     linkedAttribute: "agility",
     description: "Precision with ranged weapons.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "spellcasting",
@@ -190,6 +216,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Arcane skill for Arcane Background (Magic).",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "stealth",
@@ -197,6 +224,7 @@ const skills = [
     linkedAttribute: "agility",
     description: "Sneaking and hiding.",
     coreSkill: true,
+    traitType: "skill",
   },
   {
     id: "survival",
@@ -204,6 +232,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Finding food, water, shelter, and tracking.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "taunt",
@@ -211,6 +240,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Insulting or belittling another, usually as a Test.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "thievery",
@@ -218,6 +248,7 @@ const skills = [
     linkedAttribute: "agility",
     description: "Sleight of hand, pickpocketing, and lockpicking.",
     coreSkill: false,
+    traitType: "skill",
   },
   {
     id: "weirdScience",
@@ -225,6 +256,7 @@ const skills = [
     linkedAttribute: "smarts",
     description: "Arcane skill for Arcane Background (Weird Science).",
     coreSkill: false,
+    traitType: "skill",
   },
 ];
 
