@@ -3,6 +3,7 @@ import hindrancesData from "../../data/hindrances";
 import Button from "../Button/Button";
 import Card from "../Card";
 import Modal from "../Modal/Modal";
+import Search from "../Search/Search";
 import { searchData } from "../../utils/searchData";
 
 function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
@@ -41,14 +42,8 @@ function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
   return (
     <div>
       <div className={slideClass}>
-        <input
-          type="text"
-          id="search"
-          className="search"
-          placeholder="Search name or description"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <Search value={search} onChange={setSearch} />
+
         <div className="items-container">
           {filteredHindrances.map((hindrance) => {
             const isSelected = hindrances.some((h) => h.id === hindrance.id);
