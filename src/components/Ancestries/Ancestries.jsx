@@ -1,5 +1,6 @@
 import ancestries from "../../data/ancestries";
 import Card from "../Card";
+import Search from "../Search/Search";
 import "./Ancestries.css";
 import "../../App.css";
 import "../../styles/animation.css";
@@ -39,13 +40,8 @@ function Ancestries({ ancestrySelect, handleSelection }) {
     <>
       <div className={ancestrySlide.className}>
         <h2>Ancestries</h2>
-        <input
-          type="text"
-          className="search"
-          placeholder="Search name or description"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <Search value={search} onChange={setSearch} />
+
         <div className="items-container">
           {filteredAncestries.map((ancestry) => (
             <Ancestry
