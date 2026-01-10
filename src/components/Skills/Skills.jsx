@@ -3,10 +3,10 @@ import TraitRow from "../TraitRow/TraitRow";
 import PointDisplay from "../PointDisplay/PointDisplay";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
+import SkillsSelect from "./SkillsSelect";
 import { useSlide } from "../../hooks/useSlide";
 import SLIDE from "../../constants/slideDirections";
 import { calcSkillPoints } from "../../utils/calcSkillPoints";
-import skillsData from "../../data/skills";
 
 import "../../styles/traitRow.css";
 import { useState } from "react";
@@ -141,40 +141,6 @@ function Skills({ character, setCharacter }) {
       )}
     </Card>
   );
-
-  function SkillsSelect({ slideClass, onDone, characterSkills, addSkill }) {
-    // move to funtion
-    const characterSkillsIds = characterSkills.map((skill) => skill.id);
-    const filteredSkills = skillsData.filter(
-      (skill) => !characterSkillsIds.includes(skill.id)
-    );
-
-    return (
-      <div>
-        <div className={slideClass}>
-          <div className="items-container skills">
-            {filteredSkills.map((skill) => {
-              return (
-                <Card
-                  key={skill.id}
-                  className={`item-card`}
-                  onClick={() => {
-                    addSkill(skill);
-                    onDone();
-                  }}
-                >
-                  <div className="item-card-title">
-                    {skill.name} ({skill.linkedAttribute})
-                  </div>
-                  <div>{skill.description}</div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  }
 }
 
 export default Skills;
