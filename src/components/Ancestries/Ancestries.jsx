@@ -1,10 +1,9 @@
 import ancestries from "../../data/ancestries";
-import Card from "../Card";
 import Search from "../Search/Search";
+import ItemList from "../ItemList";
 import "./Ancestries.css";
 import "../../App.css";
 import "../../styles/animation.css";
-import Button from "../Button/Button";
 import { useState } from "react";
 import SLIDE from "../../constants/slideDirections";
 import { useSlide } from "../../hooks/useSlide";
@@ -19,40 +18,31 @@ function Ancestries({ ancestrySelect, handleSelection }) {
     search,
   });
 
-  function Ancestry({ id, name, description }) {
-    const isSelected = id === selectedId;
-
-    return (
-      <Card
-        className={`item-card ${isSelected ? "selected" : ""}`}
-        onClick={() => {
-          setSelectedId(id);
-          handleSelection(id, name, description);
-        }}
-      >
-        <div className="item-card-title">{name}</div>
-        <div>{description}</div>
-      </Card>
-    );
-  }
-
   return (
     <>
       <div className={ancestrySlide.className}>
         <h2>Ancestries</h2>
         <Search value={search} onChange={setSearch} />
+        <ItemList
+          items={filteredAncestries}
+          isSelected={(item) => item.id === selectedId}
+          onItemClick={(item) => {
+            setSelectedId(item.id);
+            handleSelection(item.id, item.name, item.description);
+            ancestrySlide.slideOut(SLIDE.LEFT);
+            setTimeout(() => {
+              ancestrySelect(false);
+            }, 300);
+          }}
+          renderItem={(item) => (
+            <>
+              <div className="item-card-title">{item.name}</div>
+              <div>{item.description}</div>
+            </>
+          )}
+        />
 
-        <div className="items-container">
-          {filteredAncestries.map((ancestry) => (
-            <Ancestry
-              key={ancestry.id}
-              id={ancestry.id}
-              name={ancestry.name}
-              description={ancestry.description}
-            />
-          ))}
-        </div>
-        <Button
+        {/* <Button
           text="Done"
           onClick={() => {
             ancestrySlide.slideOut(SLIDE.LEFT);
@@ -60,7 +50,7 @@ function Ancestries({ ancestrySelect, handleSelection }) {
               ancestrySelect(false);
             }, 300);
           }}
-        />
+        /> */}
       </div>
     </>
   );
