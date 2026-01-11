@@ -18,8 +18,9 @@ function SkillsSelect({ slideClass, onDone, characterSkills, addSkill }) {
   return (
     <div>
       <div className={slideClass}>
+        <Search value={search} onChange={setSearch} />
+
         <div className="items-container skills">
-          <Search value={search} onChange={setSearch} />
           {availableSkills.map((skill) => {
             return (
               <Card
