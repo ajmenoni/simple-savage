@@ -1,12 +1,12 @@
 import { useState } from "react";
 import hindrancesData from "../../data/hindrances";
 import Button from "../Button/Button";
-import Card from "../Card";
 import Modal from "../Modal/Modal";
+import ItemList from "../ItemList";
 import Search from "../Search/Search";
 import { searchData } from "../../utils/searchData";
 
-function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
+function HindranceSelect({ character, toggleSelection, slideClass, onDone }) {
   const [openModal, setOpenModal] = useState(false);
   const [selectedHindrance, setSelectedHindrance] = useState(null);
   const [search, setSearch] = useState("");
@@ -44,9 +44,29 @@ function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
       <div className={slideClass}>
         <Search value={search} onChange={setSearch} />
 
-        <div className="items-container">
+        <ItemList
+          items={filteredHindrances}
+          isSelected={(item) =>
+            character.hindrances.some((h) => h.id === item.id)
+          }
+          onItemClick={(item, selected) =>
+            checkSeverity("hindrances", item, selected)
+          }
+          renderItem={(item) => (
+            <>
+              <div className="item-card-title">
+                {item.name} ({getSeverity(item.severity)})
+              </div>
+              <div>{item.description}</div>
+            </>
+          )}
+        />
+
+        {/* <div className="items-container">
           {filteredHindrances.map((hindrance) => {
-            const isSelected = hindrances.some((h) => h.id === hindrance.id);
+            const isSelected = character.hindrances.some(
+              (h) => h.id === hindrance.id
+            );
 
             return (
               <Card
@@ -63,7 +83,7 @@ function HindranceSelect({ hindrances, toggleSelection, slideClass, onDone }) {
               </Card>
             );
           })}
-        </div>
+        </div> */}
 
         <Button text="Done" onClick={onDone} />
       </div>

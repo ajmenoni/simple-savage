@@ -68,7 +68,7 @@ function Hindrances({ character, setCharacter }) {
         </div>
       ) : (
         <HindranceSelect
-          hindrances={character.hindrances}
+          character={character}
           slideClass={selectSlide.className}
           toggleSelection={toggleSelection}
           onDone={handleDone}

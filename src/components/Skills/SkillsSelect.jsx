@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from "../Card";
+import ItemList from "../ItemList";
 import Search from "../Search/Search";
 import { searchData } from "../../utils/searchData";
 import skillsData from "../../data/skills";
@@ -18,26 +18,23 @@ function SkillsSelect({ slideClass, onDone, characterSkills, addSkill }) {
   return (
     <div>
       <div className={slideClass}>
-        <div className="items-container skills">
-          <Search value={search} onChange={setSearch} />
-          {availableSkills.map((skill) => {
-            return (
-              <Card
-                key={skill.id}
-                className={`item-card`}
-                onClick={() => {
-                  addSkill(skill);
-                  onDone();
-                }}
-              >
-                <div className="item-card-title">
-                  {skill.name} ({skill.linkedAttribute})
-                </div>
-                <div>{skill.description}</div>
-              </Card>
-            );
-          })}
-        </div>
+        <Search value={search} onChange={setSearch} />
+        <ItemList
+          items={availableSkills}
+          onItemClick={(item) => {
+            addSkill(item);
+            onDone();
+          }}
+          renderItem={(item) => (
+            <>
+              <div className="item-card-title">
+                {item.name} ({item.linkedAttribute})
+              </div>
+              <div>{item.description}</div>
+            </>
+          )}
+          className="skills"
+        />
       </div>
     </div>
   );
