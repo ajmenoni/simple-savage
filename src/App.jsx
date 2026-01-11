@@ -7,6 +7,7 @@ import Details from "./components/Details/Details";
 import Hindrances from "./components/Hindrances/Hindrances";
 import Attributes from "./components/Attributes/Attributes";
 import Skills from "./components/Skills/Skills";
+import Edges from "./components/Edges/Edges";
 const coreSkills = skills.filter((skill) => skill.coreSkill === true);
 const initCoreSkills = coreSkills.map((skill) => ({
   ...skill,
@@ -56,6 +57,10 @@ function App() {
 
         {step === 4 && (
           <Skills character={character} setCharacter={setCharacter} />
+        )}
+
+        {step === 5 && (
+          <Edges character={character} setCharacter={setCharacter} />
         )}
 
         {step > 0 && (
