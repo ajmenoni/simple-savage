@@ -12,7 +12,7 @@ const combatEdges = [
     },
   },
   {
-    id: "improved-block",
+    id: "improvedBlock",
     name: "Improved Block",
     type: "combat",
     description: "+2 Parry; ignore 2 points of Gang Up bonus.",
@@ -66,7 +66,7 @@ const combatEdges = [
     },
   },
   {
-    id: "combat-reflexes",
+    id: "combatReflexes",
     name: "Combat Reflexes",
     type: "combat",
     description: "+2 Spirit to recover from being Shaken or Stunned.",
@@ -91,7 +91,7 @@ const combatEdges = [
     },
   },
   {
-    id: "improved-counterattack",
+    id: "improvedCounterattack",
     name: "Improved Counterattack",
     type: "combat",
     description:
@@ -104,7 +104,7 @@ const combatEdges = [
     },
   },
   {
-    id: "dead-shot",
+    id: "deadShot",
     name: "Dead Shot",
     type: "combat",
     description:
@@ -132,7 +132,7 @@ const combatEdges = [
     },
   },
   {
-    id: "improved-dodge",
+    id: "improvedDodge",
     name: "Improved Dodge",
     type: "combat",
     description: "+2 to Evasion totals.",
@@ -144,7 +144,7 @@ const combatEdges = [
     },
   },
   {
-    id: "double-tap",
+    id: "doubleTap",
     name: "Double Tap",
     type: "combat",
     description:
@@ -170,7 +170,7 @@ const combatEdges = [
     },
   },
   {
-    id: "improved-extraction",
+    id: "improvedExtraction",
     name: "Improved Extraction",
     type: "combat",
     description:
@@ -196,7 +196,7 @@ const combatEdges = [
     },
   },
   {
-    id: "first-strike",
+    id: "firstStrike",
     name: "First Strike",
     type: "combat",
     description:
@@ -209,7 +209,7 @@ const combatEdges = [
     },
   },
   {
-    id: "improved-first-strike",
+    id: "improvedFirstStrike",
     name: "Improved First Strike",
     type: "combat",
     description:
@@ -235,7 +235,7 @@ const combatEdges = [
     },
   },
   {
-    id: "improved-frenzy",
+    id: "improvedFrenzy",
     name: "Improved Frenzy",
     type: "combat",
     description:
@@ -248,7 +248,7 @@ const combatEdges = [
     },
   },
   {
-    id: "giant-killer",
+    id: "giantKiller",
     name: "Giant Killer",
     type: "combat",
     description: "+1d6 damage against creatures three Sizes larger or more.",
@@ -260,7 +260,7 @@ const combatEdges = [
     },
   },
   {
-    id: "hard-to-kill",
+    id: "hardToKill",
     name: "Hard to Kill",
     type: "combat",
     description:
@@ -273,7 +273,7 @@ const combatEdges = [
     },
   },
   {
-    id: "harder-to-kill",
+    id: "harderToKill",
     name: "Harder to Kill",
     type: "combat",
     description:
@@ -286,7 +286,7 @@ const combatEdges = [
     },
   },
   {
-    id: "iron-jaw",
+    id: "ironJaw",
     name: "Iron Jaw",
     type: "combat",
     description: "+2 to Soak and Vigor rolls to avoid Knockout Blows.",
@@ -298,7 +298,7 @@ const combatEdges = [
     },
   },
   {
-    id: "martial-artist",
+    id: "martialArtist",
     name: "Martial Artist",
     type: "combat",
     description:
@@ -311,7 +311,7 @@ const combatEdges = [
     },
   },
   {
-    id: "martial-warrior",
+    id: "martialWarrior",
     name: "Martial Warrior",
     type: "combat",
     description:
@@ -324,7 +324,7 @@ const combatEdges = [
     },
   },
   {
-    id: "two-fisted",
+    id: "twoFisted",
     name: "Two-Fisted",
     type: "combat",
     description:
@@ -337,7 +337,7 @@ const combatEdges = [
     },
   },
   {
-    id: "two-gun-kid",
+    id: "twoGunKid",
     name: "Two-Gun Kid",
     type: "combat",
     description:

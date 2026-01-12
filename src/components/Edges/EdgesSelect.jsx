@@ -1,4 +1,3 @@
-import Card from "../Card";
 import ItemList from "../ItemList";
 import Search from "../Search/Search";
 import Button from "../Button/Button";
@@ -14,9 +13,13 @@ import socialEdges from "../../data/edges/edgesSocial";
 import weirdEdges from "../../data/edges/edgesWeird";
 import { useState } from "react";
 
+import "./Edges.css";
+
 function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
   const [search, setSearch] = useState("");
-  const [filteredEdges, setFiltered] = useState([
+  const [activeTypes, setActiveTypes] = useState([]);
+
+  const allEdges = [
     ...backgroundEdges,
     ...combatEdges,
     ...leadershipEdges,
@@ -25,23 +28,52 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
     ...professionalEdges,
     ...socialEdges,
     ...weirdEdges,
-  ]);
+  ];
+
+  const options = [
+    { type: "background", label: "Background" },
+    { type: "combat", label: "Combat" },
+    { type: "leadership", label: "Leadership" },
+    { type: "legendary", label: "Legendary" },
+    { type: "power", label: "Power" },
+    { type: "professional", label: "Professional" },
+    { type: "social", label: "Social" },
+    { type: "weird", label: "Weird" },
+  ];
+
+  const filteredByType =
+    activeTypes.length === 0
+      ? allEdges
+      : allEdges.filter((edge) => activeTypes.includes(edge.type));
 
   const searchableEdges = searchData({
-    data: sortedEdges(filteredEdges),
+    data: filteredByType.toSorted((a, b) => a.name.localeCompare(b.name)),
     search,
   });
 
-  function sortedEdges(edges) {
-    const sortedEdges = edges.toSorted((a, b) => {
-      const nameSort = a.name.localeCompare(b.name);
-      return nameSort;
-    });
-    return sortedEdges;
+  function handleFilter(type) {
+    setActiveTypes((prev) =>
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+    );
   }
 
   return (
     <>
+      <div className={"filter-group"}>
+        {options.map((option) => {
+          const isActive = activeTypes.includes(option.type);
+          return (
+            <button
+              key={option.type}
+              className={`pill edge-pill ${isActive ? "active" : ""}`}
+              type="button"
+              onClick={() => handleFilter(option.type)}
+            >
+              {option.label}
+            </button>
+          );
+        })}{" "}
+      </div>
       <div className={slideClass}>
         <Search value={search} onChange={setSearch} />
 
@@ -49,7 +81,10 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
           items={searchableEdges}
           renderItem={(item) => (
             <>
-              <div className="item-card-title">{item.name}</div>
+              <div className="item-card-title">
+                {item.name} ({item.type})
+              </div>
+              <div></div>
               <div>{item.description}</div>
             </>
           )}

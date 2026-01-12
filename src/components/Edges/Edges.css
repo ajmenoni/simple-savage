@@ -1,0 +1,14 @@
+button.pill.edge-pill {
+  font-size: x-small;
+  width: fit-content;
+  margin-right: 0.5rem;
+}
+
+.active {
+  border: 2px solid var(--savage-yellow);
+  box-shadow: 0 0 10px rgba(255, 199, 44, 0.5);
+}
+
+.filter-group {
+  margin-bottom: 0.5rem;
+}
