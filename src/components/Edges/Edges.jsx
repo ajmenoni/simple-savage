@@ -2,8 +2,10 @@ import { useState } from "react";
 
 import Card from "../Card";
 import Button from "../Button/Button";
+import EdgesSelect from "./EdgesSelect";
 import Delete from "../Delete/Delete";
 
+import { useToggleSelection } from "../../hooks/useToggleSelection";
 import { useSlide } from "../../hooks/useSlide";
 import SLIDE from "../../constants/slideDirections";
 
@@ -12,6 +14,7 @@ import "../../styles/animation.css";
 
 function Edges({ character, setCharacter }) {
   const [showItemSelect, setShowItemSelect] = useState(false);
+  const toggleSelection = useToggleSelection(setCharacter);
 
   const selectSlide = useSlide(SLIDE.LEFT);
 
@@ -27,14 +30,22 @@ function Edges({ character, setCharacter }) {
     }, 300);
   }
   return (
-    <>
-      <Card className={"slide slide-in-bottom"}>
-        <h2>Edges</h2>
-        <div className="items-container"></div>
-
-        <Button text="Select Edges" onClick={openSelect} />
-      </Card>
-    </>
+    <Card className={"slide slide-in-bottom"}>
+      {!showItemSelect ? (
+        <>
+          <h2>Edges</h2>
+          <div className="items-container"></div>
+          <Button text="Select Edges" onClick={openSelect} />
+        </>
+      ) : (
+        <EdgesSelect
+          slideClass={selectSlide.className}
+          onDone={handleDone}
+          characterEdges={character}
+          toggleSelection={toggleSelection}
+        />
+      )}
+    </Card>
   );
 }
 
