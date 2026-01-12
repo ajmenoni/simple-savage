@@ -95,9 +95,9 @@ function Skills({ character, setCharacter }) {
   }
 
   return (
-    <Card padding="compact">
+    <Card padding="compact" className={"slide slide-in-bottom"}>
       {!showItemSelect ? (
-        <div className="slide slide-in-bottom">
+        <>
           <h2>Skills</h2>
 
           <div className="trait-rows">
@@ -122,7 +122,7 @@ function Skills({ character, setCharacter }) {
           </div>
 
           <PointDisplay attributePoints={character.skillPointsSpent} />
-        </div>
+        </>
       ) : (
         <SkillsSelect
           slideClass={selectSlide.className}

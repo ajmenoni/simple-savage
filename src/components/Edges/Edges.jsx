@@ -10,7 +10,7 @@ import SLIDE from "../../constants/slideDirections";
 import "../../App.css";
 import "../../styles/animation.css";
 
-function Edges() {
+function Edges({ character, setCharacter }) {
   const [showItemSelect, setShowItemSelect] = useState(false);
 
   const selectSlide = useSlide(SLIDE.LEFT);
@@ -27,13 +27,14 @@ function Edges() {
     }, 300);
   }
   return (
-    <Card>
-      <div className="slide slide-in-bottom">
+    <>
+      <Card className={"slide slide-in-bottom"}>
         <h2>Edges</h2>
         <div className="items-container"></div>
-      </div>
-      <Button text="Select Edges" onClick={openSelect} />
-    </Card>
+
+        <Button text="Select Edges" onClick={openSelect} />
+      </Card>
+    </>
   );
 }
 

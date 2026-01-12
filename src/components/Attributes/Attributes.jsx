@@ -31,20 +31,18 @@ function Attributes({ character, setCharacter }) {
   }
 
   return (
-    <Card padding="compact">
-      <div className="slide slide-in-bottom">
-        <h2>Attributes</h2>
+    <Card padding="compact" className={"slide slide-in-bottom"}>
+      <h2>Attributes</h2>
 
-        <div className="trait-rows">
-          {attributes.map((attribute) => (
-            <TraitRow
-              key={attribute.id}
-              trait={attribute}
-              value={character.attributes[attribute.id]}
-              onChange={setAttribute}
-            />
-          ))}
-        </div>
+      <div className="trait-rows">
+        {attributes.map((attribute) => (
+          <TraitRow
+            key={attribute.id}
+            trait={attribute}
+            value={character.attributes[attribute.id]}
+            onChange={setAttribute}
+          />
+        ))}
       </div>
 
       <PointDisplay attributePoints={character.attributePointsSpent} />
