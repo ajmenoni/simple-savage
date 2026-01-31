@@ -13,6 +13,7 @@ import "../../App.css";
 import "../../styles/animation.css";
 
 function Edges({ character, setCharacter }) {
+  console.log(character.edges);
   const [showItemSelect, setShowItemSelect] = useState(false);
   const toggleSelection = useToggleSelection(setCharacter);
 
@@ -34,14 +35,22 @@ function Edges({ character, setCharacter }) {
       {!showItemSelect ? (
         <>
           <h2>Edges</h2>
-          <div className="items-container"></div>
+          <div className="items-container">
+            {character.edges.map((edge) => (
+              <CharEdge
+                key={edge.id}
+                edge={edge}
+                toggleSelection={toggleSelection}
+              />
+            ))}
+          </div>
           <Button text="Select Edges" onClick={openSelect} />
         </>
       ) : (
         <EdgesSelect
           slideClass={selectSlide.className}
           onDone={handleDone}
-          characterEdges={character}
+          character={character}
           toggleSelection={toggleSelection}
         />
       )}
@@ -49,6 +58,16 @@ function Edges({ character, setCharacter }) {
   );
 }
 
-function EdgeSelect() {}
+function CharEdge({ edge, toggleSelection }) {
+  return (
+    <div className={`trait-container trait-container--stacked `}>
+      <span className="title top-title">{edge.name}</span>
+      <div className="trait-row">
+        <span>{edge.description}</span>
+        <Delete onClick={() => toggleSelection("edges", edge)} />
+      </div>
+    </div>
+  );
+}
 
 export default Edges;

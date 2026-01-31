@@ -2,8 +2,8 @@ const powerEdges = [
   {
     id: "artificer",
     name: "Artificer",
-    type: "arcane",
-    description: "Allows user to create Arcane Devices.",
+    type: "power",
+    description: "Allows user to create power Devices.",
     req: {
       tier: "seasoned",
       skills: [],
@@ -15,7 +15,7 @@ const powerEdges = [
   {
     id: "channeling",
     name: "Channeling",
-    type: "arcane",
+    type: "power",
     description:
       "Reduce Power Point cost by 1 with a raise on the activation roll.",
     req: {
@@ -29,7 +29,7 @@ const powerEdges = [
   {
     id: "concentration",
     name: "Concentration",
-    type: "arcane",
+    type: "power",
     description: "Double duration of non-Instant powers.",
     req: {
       tier: "seasoned",
@@ -42,7 +42,7 @@ const powerEdges = [
   {
     id: "extraEffort",
     name: "Extra Effort",
-    type: "arcane",
+    type: "power",
     description:
       "Increase Focus by +1 for 1 Power Point or +2 for 3 Power Points.",
     req: {
@@ -56,7 +56,7 @@ const powerEdges = [
   {
     id: "gadgeteer",
     name: "Gadgeteer",
-    type: "arcane",
+    type: "power",
     description:
       "Spend 3 Power Points to create a device that replicates another power.",
     req: {
@@ -70,7 +70,7 @@ const powerEdges = [
   {
     id: "holyUnholyWarrior",
     name: "Holy/Unholy Warrior",
-    type: "arcane",
+    type: "power",
     description: "Add +1 to +4 to Soak rolls for each Power Point spent.",
     req: {
       tier: "seasoned",
@@ -83,7 +83,7 @@ const powerEdges = [
   {
     id: "mentalist",
     name: "Mentalist",
-    type: "arcane",
+    type: "power",
     description: "+2 to opposed Psionics rolls.",
     req: {
       tier: "seasoned",
@@ -96,7 +96,7 @@ const powerEdges = [
   {
     id: "newPowers",
     name: "New Powers",
-    type: "arcane",
+    type: "power",
     description: "Your character knows two new powers.",
     req: {
       tier: "novice",
@@ -109,7 +109,7 @@ const powerEdges = [
   {
     id: "powerPoints",
     name: "Power Points",
-    type: "arcane",
+    type: "power",
     description: "Gain 5 additional Power Points, no more than once per Rank.",
     req: {
       tier: "novice",
@@ -122,20 +122,20 @@ const powerEdges = [
   {
     id: "powerSurge",
     name: "Power Surge",
-    type: "arcane",
+    type: "power",
     description: "Recover 10 Power Points when dealt a Joker in combat.",
     req: {
       tier: "wildcard",
-      skills: ["arcaneSkill"],
+      skills: ["powerSkill"],
       attributes: [],
       edges: [],
     },
-    reqDisplay: "WC, N, AB, Arcane Skill d8",
+    reqDisplay: "WC, N, AB, power Skill d8",
   },
   {
     id: "rapidRecharge",
     name: "Rapid Recharge",
-    type: "arcane",
+    type: "power",
     description: "Recover 10 Power Points per hour.",
     req: {
       tier: "seasoned",
@@ -148,7 +148,7 @@ const powerEdges = [
   {
     id: "improvedRapidRecharge",
     name: "Improved Rapid Recharge",
-    type: "arcane",
+    type: "power",
     description: "Recover 20 Power Points per hour.",
     req: {
       tier: "veteran",
@@ -161,20 +161,20 @@ const powerEdges = [
   {
     id: "soulDrain",
     name: "Soul Drain",
-    type: "arcane",
+    type: "power",
     description: "Recover 5 Power Points for a level of Fatigue.",
     req: {
       tier: "seasoned",
-      skills: ["arcaneSkill"],
+      skills: ["powerSkill"],
       attributes: [],
       edges: [],
     },
-    reqDisplay: "S, AB, Arcane Skill d10",
+    reqDisplay: "S, AB, power Skill d10",
   },
   {
     id: "wizard",
     name: "Wizard",
-    type: "arcane",
+    type: "power",
     description: "Spend 1 extra Power Point to change a spell’s Trapping.",
     req: {
       tier: "seasoned",

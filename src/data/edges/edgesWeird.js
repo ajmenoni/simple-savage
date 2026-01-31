@@ -2,7 +2,7 @@ const weirdEdges = [
   {
     id: "beastBond",
     name: "Beast Bond",
-    type: "background",
+    type: "weird",
     description: "The hero may spend Bennies for animals under her control.",
     req: {
       tier: "novice",
@@ -15,7 +15,7 @@ const weirdEdges = [
   {
     id: "beastMaster",
     name: "Beast Master",
-    type: "background",
+    type: "weird",
     description: "Animals like your hero and he has a pet of some sort.",
     req: {
       tier: "novice",
@@ -55,7 +55,7 @@ const weirdEdges = [
   {
     id: "dangerSense",
     name: "Danger Sense",
-    type: "background",
+    type: "weird",
     description: "Notice roll at +2 to sense ambushes or similar events.",
     req: {
       tier: "novice",
@@ -68,7 +68,7 @@ const weirdEdges = [
   {
     id: "healer",
     name: "Healer",
-    type: "background",
+    type: "weird",
     description: "+2 to Healing rolls, magical or otherwise.",
     req: {
       tier: "novice",
@@ -81,7 +81,7 @@ const weirdEdges = [
   {
     id: "liquidCourage",
     name: "Liquid Courage",
-    type: "background",
+    type: "weird",
     description:
       "Alcohol increases Vigor a die type and ignores one level of Wound penalty; −1 to Agility, Smarts, and related skills.",
     req: {
@@ -95,7 +95,7 @@ const weirdEdges = [
   {
     id: "scavenger",
     name: "Scavenger",
-    type: "background",
+    type: "weird",
     description: "May find a needed item once per encounter.",
     req: {
       tier: "novice",

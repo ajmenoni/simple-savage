@@ -16,6 +16,7 @@ import { useState } from "react";
 import "./Edges.css";
 
 function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
+  console.log(character);
   const [search, setSearch] = useState("");
   const [activeTypes, setActiveTypes] = useState([]);
 
@@ -57,6 +58,12 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
     );
   }
 
+  function handleSelection(field, item, selected) {
+    toggleSelection(field, item);
+
+    console.log(selected);
+  }
+
   return (
     <>
       <div className={"filter-group"}>
@@ -79,6 +86,12 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
 
         <ItemList
           items={searchableEdges}
+          isSelected={(item) =>
+            character.edges.some((edge) => edge.id === item.id)
+          }
+          onItemClick={(item, selected) => {
+            handleSelection("edges", item);
+          }}
           renderItem={(item) => (
             <>
               <div className="item-card-title">
