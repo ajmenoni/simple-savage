@@ -7,22 +7,23 @@ const socialEdges = [
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "spirit", value: "d8" }],
+      attributes: ["spirit"],
       edges: [],
     },
+    reqDisplay: "N, Spirit d8",
   },
   {
     id: "commonBond",
     name: "Common Bond",
     type: "social",
-    description: "May freely give Bennies to others.",
+    description: "The hero may freely give her Bennies to others.",
     req: {
-      tier: "novice",
+      tier: "wildcard",
       skills: [],
-      attributes: [{ id: "spirit", value: "d8" }],
+      attributes: ["spirit"],
       edges: [],
-      wildcard: true,
     },
+    reqDisplay: "WC, N, Spirit d8",
   },
   {
     id: "connections",
@@ -35,6 +36,7 @@ const socialEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N",
   },
   {
     id: "humiliate",
@@ -43,22 +45,24 @@ const socialEdges = [
     description: "Free reroll when making Taunt rolls.",
     req: {
       tier: "novice",
-      skills: [{ id: "taunt", value: "d8" }],
+      skills: ["taunt"],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N, Taunt d8",
   },
   {
     id: "menacing",
     name: "Menacing",
     type: "social",
-    description: "+2 to Intimidation rolls.",
+    description: "+2 to Intimidation.",
     req: {
       tier: "novice",
       skills: [],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N, See Text",
   },
   {
     id: "provoke",
@@ -67,10 +71,11 @@ const socialEdges = [
     description: "May provoke foes with a raise on a Taunt roll.",
     req: {
       tier: "novice",
-      skills: [{ id: "taunt", value: "d6" }],
+      skills: ["taunt"],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N, Taunt d6",
   },
   {
     id: "rabbleRouser",
@@ -81,9 +86,10 @@ const socialEdges = [
     req: {
       tier: "seasoned",
       skills: [],
-      attributes: [{ id: "spirit", value: "d8" }],
+      attributes: ["spirit"],
       edges: [],
     },
+    reqDisplay: "S, Spirit d8",
   },
   {
     id: "reliable",
@@ -93,9 +99,10 @@ const socialEdges = [
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "spirit", value: "d8" }],
+      attributes: ["spirit"],
       edges: [],
     },
+    reqDisplay: "N, Spirit d8",
   },
   {
     id: "retort",
@@ -105,10 +112,11 @@ const socialEdges = [
       "A raise when resisting a Taunt or Intimidation attack makes the foe Distracted.",
     req: {
       tier: "novice",
-      skills: [{ id: "taunt", value: "d6" }],
+      skills: ["taunt"],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N, Taunt d6",
   },
   {
     id: "streetwise",
@@ -118,9 +126,10 @@ const socialEdges = [
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "smarts", value: "d6" }],
+      attributes: ["smarts"],
       edges: [],
     },
+    reqDisplay: "N, Smarts d6",
   },
   {
     id: "strongWilled",
@@ -130,21 +139,23 @@ const socialEdges = [
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "spirit", value: "d8" }],
+      attributes: ["spirit"],
       edges: [],
     },
+    reqDisplay: "N, Spirit d8",
   },
   {
     id: "ironWill",
     name: "Iron Will",
     type: "social",
-    description: "Bonus applies to resisting and recovery from powers.",
+    description: "The bonus now applies to resisting and recovery from powers.",
     req: {
       tier: "seasoned",
       skills: [],
       attributes: [],
       edges: ["brave", "strongWilled"],
     },
+    reqDisplay: "S, Brave, Strong Willed",
   },
   {
     id: "workTheRoom",
@@ -155,9 +166,10 @@ const socialEdges = [
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "spirit", value: "d8" }],
+      attributes: ["spirit"],
       edges: [],
     },
+    reqDisplay: "N, Spirit d8",
   },
   {
     id: "workTheCrowd",
@@ -170,6 +182,7 @@ const socialEdges = [
       attributes: [],
       edges: ["workTheRoom"],
     },
+    reqDisplay: "S, Work the Room",
   },
 ];
 

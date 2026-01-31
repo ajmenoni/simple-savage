@@ -10,7 +10,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
-    reqDisaply: "N",
+    reqDisplay: "N",
   },
   {
     id: "abmidextrous",
@@ -28,7 +28,7 @@ const backgroundEdges = [
       ],
       edges: [],
     },
-    reqDisaply: "N A d8",
+    reqDisplay: "N A d8",
   },
   {
     id: "arcaneResistance",
@@ -42,7 +42,7 @@ const backgroundEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: [],
     },
-    reqDisaply: "N, Sp d8",
+    reqDisplay: "N, Sp d8",
   },
 
   {
@@ -57,7 +57,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["arcaneResistance"],
     },
-    reqDisaply: "N, Arcane Resistance",
+    reqDisplay: "N, Arcane Resistance",
   },
 
   {
@@ -71,7 +71,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
-    reqDisaply: "N",
+    reqDisplay: "N",
   },
 
   {
@@ -85,7 +85,7 @@ const backgroundEdges = [
       attributes: [{ id: "vigor", value: "d6" }],
       edges: [],
     },
-    reqDisaply: "N, V d6",
+    reqDisplay: "N, V d6",
   },
 
   {
@@ -99,7 +99,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["attractive"],
     },
-    reqDisaply: "N, Attractive",
+    reqDisplay: "N, Attractive",
   },
 
   {
@@ -114,7 +114,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
-    reqDisaply: "N",
+    reqDisplay: "N",
   },
 
   {
@@ -128,7 +128,7 @@ const backgroundEdges = [
       attributes: [{ id: "spirit", value: "d6" }],
       edges: [],
     },
-    reqDisaply: "N, Sp d6",
+    reqDisplay: "N, Sp d6",
   },
 
   {
@@ -146,7 +146,7 @@ const backgroundEdges = [
       ],
       edges: [],
     },
-    reqDisaply: "N, St d6, V d6",
+    reqDisplay: "N, St d6, V d6",
   },
 
   {
@@ -164,7 +164,7 @@ const backgroundEdges = [
       ],
       edges: [],
     },
-    reqDisaply: "N, St d6, V d6",
+    reqDisplay: "N, St d6, V d6",
   },
 
   {
@@ -178,7 +178,7 @@ const backgroundEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: [],
     },
-    reqDisaply: "N, Sp d8",
+    reqDisplay: "N, Sp d8",
   },
 
   {
@@ -192,7 +192,7 @@ const backgroundEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: [],
     },
-    reqDisaply: "N, Sp d8",
+    reqDisplay: "N, Sp d8",
   },
 
   {
@@ -207,7 +207,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
-    reqDisaply: "N",
+    reqDisplay: "N",
   },
 
   {
@@ -222,7 +222,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["fame"],
     },
-    reqDisaply: "S, Fame",
+    reqDisplay: "S, Fame",
   },
 
   {
@@ -237,7 +237,7 @@ const backgroundEdges = [
       attributes: [{ id: "vigor", value: "d8" }],
       edges: [],
     },
-    reqDisaply: "N, V d8",
+    reqDisplay: "N, V d8",
   },
 
   {
@@ -251,7 +251,7 @@ const backgroundEdges = [
       attributes: [{ id: "agility", value: "d6" }],
       edges: [],
     },
-    reqDisaply: "N, A d6",
+    reqDisplay: "N, A d6",
   },
 
   {
@@ -270,7 +270,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
-    reqDisaply: "N",
+    reqDisplay: "N",
   },
 
   {
@@ -284,7 +284,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
-    reqDisaply: "N",
+    reqDisplay: "N",
   },
 
   {
@@ -298,7 +298,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["luck"],
     },
-    reqDisaply: "N, Luck",
+    reqDisplay: "N, Luck",
   },
 
   {
@@ -312,7 +312,7 @@ const backgroundEdges = [
       attributes: [{ id: "agility", value: "d8" }],
       edges: [],
     },
-    reqDisaply: "N, A d8",
+    reqDisplay: "N, A d8",
   },
 
   {
@@ -326,7 +326,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
-    reqDisaply: "N",
+    reqDisplay: "N",
   },
 
   {
@@ -340,7 +340,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["rich"],
     },
-    reqDisaply: "N, Rich",
+    reqDisplay: "N, Rich",
   },
 ];
 

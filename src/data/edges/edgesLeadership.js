@@ -10,6 +10,7 @@ const leadershipEdges = [
       attributes: [{ id: "smarts", value: "d6" }],
       edges: [],
     },
+    reqDisplay: "N, Sm d6",
   },
 
   {
@@ -23,6 +24,7 @@ const leadershipEdges = [
       attributes: [],
       edges: ["command"],
     },
+    reqDisplay: "S, Command",
   },
 
   {
@@ -36,6 +38,7 @@ const leadershipEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: ["command"],
     },
+    reqDisplay: "V, Sp d8, Command",
   },
 
   {
@@ -49,6 +52,7 @@ const leadershipEdges = [
       attributes: [{ id: "smarts", value: "d8" }],
       edges: ["command"],
     },
+    reqDisplay: "S, Sm d8, Command",
   },
 
   {
@@ -63,6 +67,7 @@ const leadershipEdges = [
       attributes: [],
       edges: ["command"],
     },
+    reqDisplay: "S, Command",
   },
 
   {
@@ -76,6 +81,7 @@ const leadershipEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: ["command"],
     },
+    reqDisplay: "S, Sp d8, Command",
   },
 
   {
@@ -90,6 +96,7 @@ const leadershipEdges = [
       attributes: [{ id: "smarts", value: "d8" }],
       edges: ["command"],
     },
+    reqDisplay: "S, Sm d8, Command, Battle d6",
   },
 
   {
@@ -103,6 +110,7 @@ const leadershipEdges = [
       attributes: [],
       edges: ["tactician"],
     },
+    reqDisplay: "V, Tactician",
   },
 ];
 

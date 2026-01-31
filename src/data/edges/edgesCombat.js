@@ -10,6 +10,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S, Fighting d8",
   },
   {
     id: "improvedBlock",
@@ -22,6 +23,7 @@ const combatEdges = [
       attributes: [],
       edges: ["block"],
     },
+    reqDisplay: "V, Block",
   },
   {
     id: "brawler",
@@ -38,6 +40,7 @@ const combatEdges = [
       ],
       edges: [],
     },
+    reqDisplay: "N, St d8, V d8",
   },
   {
     id: "bruiser",
@@ -51,6 +54,7 @@ const combatEdges = [
       attributes: [],
       edges: ["brawler"],
     },
+    reqDisplay: "S, Brawler",
   },
   {
     id: "calculating",
@@ -64,6 +68,7 @@ const combatEdges = [
       attributes: [{ id: "smarts", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, Sm d8",
   },
   {
     id: "combatReflexes",
@@ -76,6 +81,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S",
   },
   {
     id: "counterattack",
@@ -89,6 +95,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S, Fighting d8",
   },
   {
     id: "improvedCounterattack",
@@ -102,6 +109,7 @@ const combatEdges = [
       attributes: [],
       edges: ["counterattack"],
     },
+    reqDisplay: "V, Counterattack",
   },
   {
     id: "deadShot",
@@ -118,6 +126,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "WildCard, N, Athletics or Shooting d8",
   },
   {
     id: "dodge",
@@ -130,6 +139,7 @@ const combatEdges = [
       attributes: [{ id: "agility", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "S, A d8",
   },
   {
     id: "improvedDodge",
@@ -142,6 +152,7 @@ const combatEdges = [
       attributes: [],
       edges: ["dodge"],
     },
+    reqDisplay: "S, Dodge",
   },
   {
     id: "doubleTap",
@@ -155,6 +166,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S, Shooting d6",
   },
   {
     id: "extraction",
@@ -168,6 +180,7 @@ const combatEdges = [
       attributes: [{ id: "agility", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, A d8",
   },
   {
     id: "improvedExtraction",
@@ -181,6 +194,7 @@ const combatEdges = [
       attributes: [],
       edges: ["extraction"],
     },
+    reqDisplay: "S, Extraction",
   },
   {
     id: "feint",
@@ -194,6 +208,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N, Fighting d8",
   },
   {
     id: "firstStrike",
@@ -207,6 +222,7 @@ const combatEdges = [
       attributes: [{ id: "agility", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, A d8",
   },
   {
     id: "improvedFirstStrike",
@@ -220,6 +236,21 @@ const combatEdges = [
       attributes: [],
       edges: ["first-strike"],
     },
+    reqDisplay: "H, First Strike",
+  },
+  {
+    id: "freeRunner",
+    name: "Free Runner",
+    type: "combat",
+    description:
+      "Ignore Difficult Ground and add +2 Athletics in foot chases and Athletics (climbing)",
+    req: {
+      tier: "novice",
+      skills: [],
+      attributes: [{ id: "Athletics", value: "d8" }],
+      edges: [],
+    },
+    reqDisplay: "N, A d8",
   },
   {
     id: "frenzy",
@@ -233,6 +264,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S, Fighting d8",
   },
   {
     id: "improvedFrenzy",
@@ -246,6 +278,7 @@ const combatEdges = [
       attributes: [],
       edges: ["frenzy"],
     },
+    reqDisplay: "V, Frenzy",
   },
   {
     id: "giantKiller",
@@ -258,6 +291,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "V",
   },
   {
     id: "hardToKill",
@@ -271,6 +305,7 @@ const combatEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, Sp d8",
   },
   {
     id: "harderToKill",
@@ -282,7 +317,20 @@ const combatEdges = [
       tier: "veteran",
       skills: [],
       attributes: [],
-      edges: ["hard-to-kill"],
+      edges: ["hardToKill"],
+    },
+    reqDisplay: "V, Hard to Kill",
+  },
+  {
+    id: "improvisationalFighter",
+    name: "Improvisational Fighter",
+    type: "combat",
+    description: "Ignore -2 penalty when attacking with improvised weapons",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: [{ id: "smarts", value: "d6" }],
+      edges: [],
     },
   },
   {
@@ -296,6 +344,65 @@ const combatEdges = [
       attributes: [{ id: "vigor", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, V d8",
+  },
+  {
+    id: "killerInstinct",
+    name: "Killer Instinct",
+    type: "combat",
+    description:
+      "The hero gets a free reroll in any opposed Test he initiates.",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "S",
+  },
+  {
+    id: "levelHeaded",
+    name: "Level Headed",
+    type: "combat",
+    description:
+      "Draw an additional Action Card each round in combat and choose which one to use",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: [{ id: "smarts", value: "d8" }],
+      edges: [],
+    },
+    reqDisplay: "S, Sm d8",
+  },
+  {
+    id: "improvedLevelHeaded",
+    name: "Improved Level Headed",
+    type: "combat",
+    description:
+      "Draw two additional Action Cards each round in combat and choose which one to use.",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: [],
+      edges: ["levelHeaded"],
+    },
+    reqDisplay: "S, Level Headed",
+  },
+  {
+    id: "marksman",
+    name: "Marksman",
+    type: "combat",
+    description:
+      "Ignore up to 2 points of penalties from Range, Cover, Called Shot, Scale, or Speed; or add +1 to first Athletics (throwing) or Shooting roll. Character may not move or fire greater than RoF 1.",
+    req: {
+      tier: "seasoned",
+      skills: [
+        { id: "athletics", value: "d8" },
+        { id: "shooting", value: "d8" },
+      ],
+      edges: [],
+    },
+    reqDisplay: "S, Athletics or Shooting d8",
   },
   {
     id: "martialArtist",
@@ -309,6 +416,7 @@ const combatEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N, Fighting d6",
   },
   {
     id: "martialWarrior",
@@ -320,34 +428,198 @@ const combatEdges = [
       tier: "seasoned",
       skills: [],
       attributes: [],
-      edges: ["martial-artist"],
+      edges: ["martialArtist"],
     },
+    reqDisplay: "S, Martial Artist",
+  },
+  {
+    id: "mightyBlow",
+    name: "Mighty Blow",
+    type: "combat",
+    description:
+      "On first successful Fighting roll, double damage when dealt a Joker.",
+    req: {
+      tier: "wildcard",
+      skills: ["fighting"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "WC, Fighting d8",
+  },
+  {
+    id: "nervesOfSteel",
+    name: "Nerves of Steel",
+    type: "combat",
+    description: "Ignore one level of Wound penalties.",
+    req: {
+      tier: "novice",
+      skills: [],
+      attributes: ["vigor"],
+      edges: [],
+    },
+    reqDisplay: "N, Vigor d8",
+  },
+  {
+    id: "improvedNervesOfSteel",
+    name: "Improved Nerves of Steel",
+    type: "combat",
+    description: "Ignore up to two levels of Wound penalties.",
+    req: {
+      tier: "novice",
+      skills: [],
+      attributes: [],
+      edges: ["nervesOfSteel"],
+    },
+    reqDisplay: "N, Nerves of Steel",
+  },
+  {
+    id: "noMercy",
+    name: "No Mercy",
+    type: "combat",
+    description: "+2 damage when spending a Benny to reroll damage.",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "S",
+  },
+  {
+    id: "rapidFire",
+    name: "Rapid Fire",
+    type: "combat",
+    description: "Increase RoF by 1 for one Shooting attack per turn.",
+    req: {
+      tier: "seasoned",
+      skills: ["shooting"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "S, Shooting d6",
+  },
+  {
+    id: "improvedRapidFire",
+    name: "Improved Rapid Fire",
+    type: "combat",
+    description: "Increase RoF by 1 for up to two Shooting attacks per turn.",
+    req: {
+      tier: "veteran",
+      skills: [],
+      attributes: [],
+      edges: ["rapidFire"],
+    },
+    reqDisplay: "V, Rapid Fire",
+  },
+  {
+    id: "rockAndRoll",
+    name: "Rock and Roll!",
+    type: "combat",
+    description:
+      "Ignore the Recoil penalty when firing weapons with a RoF of 2 or more. Character may not move.",
+    req: {
+      tier: "seasoned",
+      skills: ["shooting"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "S, Shooting d8",
+  },
+  {
+    id: "steadyHands",
+    name: "Steady Hands",
+    type: "combat",
+    description:
+      "Ignore Unstable Platform penalty; reduce running penalty to –1.",
+    req: {
+      tier: "novice",
+      skills: [],
+      attributes: ["agility"],
+      edges: [],
+    },
+    reqDisplay: "N, Agility d8",
+  },
+  {
+    id: "sweep",
+    name: "Sweep",
+    type: "combat",
+    description:
+      "Fighting roll with two-handed weapon (–2 without) to hit all targets in weapon’s Reach. Limited action.",
+    req: {
+      tier: "novice",
+      skills: ["fighting"],
+      attributes: ["strength"],
+      edges: [],
+    },
+    reqDisplay: "N, Strength d8, Fighting d8",
+  },
+  {
+    id: "improvedSweep",
+    name: "Improved Sweep",
+    type: "combat",
+    description: "As Sweep, but attack can avoid allies. Limited action.",
+    req: {
+      tier: "veteran",
+      skills: [],
+      attributes: [],
+      edges: ["sweep"],
+    },
+    reqDisplay: "V, Sweep",
+  },
+  {
+    id: "trademarkWeapon",
+    name: "Trademark Weapon",
+    type: "combat",
+    description:
+      "+1 to Athletics (throwing), Fighting, or Shooting total with a specific weapon; +1 Parry while weapon is readied.",
+    req: {
+      tier: "novice",
+      skills: [],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "N, d8 in related skill",
+  },
+  {
+    id: "improvedTrademarkWeapon",
+    name: "Improved Trademark Weapon",
+    type: "combat",
+    description: "The attack and Parry bonus increases to +2.",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: [],
+      edges: ["trademarkWeapon"],
+    },
+    reqDisplay: "S, Trademark Weapon",
   },
   {
     id: "twoFisted",
     name: "Two-Fisted",
     type: "combat",
     description:
-      "Make one extra Fighting roll with an off-hand melee weapon at no Multi-Action penalty.",
+      "Make one extra Fighting roll with a second melee weapon in the off-hand at no Multi-Action penalty.",
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "agility", value: "d8" }],
+      attributes: ["agility"],
       edges: [],
     },
+    reqDisplay: "N, Agility d8",
   },
   {
     id: "twoGunKid",
     name: "Two-Gun Kid",
     type: "combat",
     description:
-      "Make one extra Shooting or Athletics (throwing) roll with an off-hand ranged weapon at no Multi-Action penalty.",
+      "Make one extra Shooting or Athletics (throwing) roll with a second ranged weapon in the off-hand at no Multi-Action penalty.",
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "agility", value: "d8" }],
+      attributes: ["agility"],
       edges: [],
     },
+    reqDisplay: "N, Agility d8",
   },
 ];
 

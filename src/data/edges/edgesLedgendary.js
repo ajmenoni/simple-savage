@@ -10,6 +10,7 @@ const legendaryEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "WC, L",
   },
   {
     id: "professional",
@@ -22,6 +23,7 @@ const legendaryEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "L, Max Trait",
   },
   {
     id: "expert",
@@ -34,6 +36,7 @@ const legendaryEdges = [
       attributes: [],
       edges: ["professional"],
     },
+    reqDisplay: "L, Professional in Trait",
   },
   {
     id: "master",
@@ -47,6 +50,7 @@ const legendaryEdges = [
       attributes: [],
       edges: ["expert"],
     },
+    reqDisplay: "WC, L, Expert in Trait",
   },
   {
     id: "sidekick",
@@ -59,6 +63,7 @@ const legendaryEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "WC, L",
   },
   {
     id: "toughAsNails",
@@ -71,6 +76,7 @@ const legendaryEdges = [
       attributes: [{ id: "vigor", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "L, V d8",
   },
   {
     id: "tougherThanNails",
@@ -83,6 +89,7 @@ const legendaryEdges = [
       attributes: [{ id: "vigor", value: "d12" }],
       edges: ["toughAsNails"],
     },
+    reqDisplay: "L, Tough as Nails, V d12",
   },
   {
     id: "weaponMaster",
@@ -95,6 +102,7 @@ const legendaryEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "L, Fighting d12",
   },
   {
     id: "masterOfArms",
@@ -108,6 +116,7 @@ const legendaryEdges = [
       attributes: [],
       edges: ["weaponMaster"],
     },
+    reqDisplay: "L, Weapon Master",
   },
 ];
 
