@@ -3,67 +3,135 @@ const powerEdges = [
     id: "artificer",
     name: "Artificer",
     type: "power",
-    description: "Allows the creation of Arcane Devices.",
+    description: "Allows user to create power Devices.",
     req: {
       tier: "seasoned",
       skills: [],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S, AB",
   },
-
   {
     id: "channeling",
     name: "Channeling",
     type: "power",
-    description: "Reduce Power Point cost by 1 with a raise on activation.",
+    description:
+      "Reduce Power Point cost by 1 with a raise on the activation roll.",
     req: {
       tier: "seasoned",
       skills: [],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S, AB",
   },
-
   {
     id: "concentration",
     name: "Concentration",
     type: "power",
-    description: "Double the Duration of non-Instant powers.",
+    description: "Double duration of non-Instant powers.",
     req: {
       tier: "seasoned",
       skills: [],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S, AB",
   },
-
+  {
+    id: "extraEffort",
+    name: "Extra Effort",
+    type: "power",
+    description:
+      "Increase Focus by +1 for 1 Power Point or +2 for 3 Power Points.",
+    req: {
+      tier: "seasoned",
+      skills: ["focus"],
+      attributes: [],
+      edges: ["gifted"],
+    },
+    reqDisplay: "S, AB (Gifted), Focus d6",
+  },
+  {
+    id: "gadgeteer",
+    name: "Gadgeteer",
+    type: "power",
+    description:
+      "Spend 3 Power Points to create a device that replicates another power.",
+    req: {
+      tier: "seasoned",
+      skills: ["weirdScience"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "S, AB (Weird Science), Weird Science d6",
+  },
+  {
+    id: "holyUnholyWarrior",
+    name: "Holy/Unholy Warrior",
+    type: "power",
+    description: "Add +1 to +4 to Soak rolls for each Power Point spent.",
+    req: {
+      tier: "seasoned",
+      skills: ["faith"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "S, AB (Miracles), Faith d6",
+  },
+  {
+    id: "mentalist",
+    name: "Mentalist",
+    type: "power",
+    description: "+2 to opposed Psionics rolls.",
+    req: {
+      tier: "seasoned",
+      skills: ["psionics"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "S, AB (Psionics), Psionics d6",
+  },
   {
     id: "newPowers",
     name: "New Powers",
     type: "power",
-    description: "Gain two new powers.",
+    description: "Your character knows two new powers.",
     req: {
       tier: "novice",
       skills: [],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N, AB",
   },
-
   {
     id: "powerPoints",
     name: "Power Points",
     type: "power",
-    description: "Gain 5 additional Power Points (once per Rank).",
+    description: "Gain 5 additional Power Points, no more than once per Rank.",
     req: {
       tier: "novice",
       skills: [],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N, AB",
   },
-
+  {
+    id: "powerSurge",
+    name: "Power Surge",
+    type: "power",
+    description: "Recover 10 Power Points when dealt a Joker in combat.",
+    req: {
+      tier: "wildcard",
+      skills: ["powerSkill"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "WC, N, AB, power Skill d8",
+  },
   {
     id: "rapidRecharge",
     name: "Rapid Recharge",
@@ -71,12 +139,12 @@ const powerEdges = [
     description: "Recover 10 Power Points per hour.",
     req: {
       tier: "seasoned",
-      skills: [],
-      attributes: [{ id: "spirit", value: "d6" }],
+      skills: ["spellcasting"],
+      attributes: [],
       edges: [],
     },
+    reqDisplay: "S, Spellcasting d6, AB",
   },
-
   {
     id: "improvedRapidRecharge",
     name: "Improved Rapid Recharge",
@@ -88,8 +156,21 @@ const powerEdges = [
       attributes: [],
       edges: ["rapidRecharge"],
     },
+    reqDisplay: "V, Rapid Recharge",
   },
-
+  {
+    id: "soulDrain",
+    name: "Soul Drain",
+    type: "power",
+    description: "Recover 5 Power Points for a level of Fatigue.",
+    req: {
+      tier: "seasoned",
+      skills: ["powerSkill"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "S, AB, power Skill d10",
+  },
   {
     id: "wizard",
     name: "Wizard",
@@ -97,10 +178,11 @@ const powerEdges = [
     description: "Spend 1 extra Power Point to change a spell’s Trapping.",
     req: {
       tier: "seasoned",
-      skills: [],
+      skills: ["spellcasting"],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "S, AB (Magic), Spellcasting d6",
   },
 ];
 

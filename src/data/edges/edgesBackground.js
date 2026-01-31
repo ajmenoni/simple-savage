@@ -10,6 +10,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N",
   },
   {
     id: "abmidextrous",
@@ -27,6 +28,7 @@ const backgroundEdges = [
       ],
       edges: [],
     },
+    reqDisplay: "N A d8",
   },
   {
     id: "arcaneResistance",
@@ -40,6 +42,7 @@ const backgroundEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, Sp d8",
   },
 
   {
@@ -54,6 +57,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["arcaneResistance"],
     },
+    reqDisplay: "N, Arcane Resistance",
   },
 
   {
@@ -67,6 +71,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N",
   },
 
   {
@@ -80,6 +85,7 @@ const backgroundEdges = [
       attributes: [{ id: "vigor", value: "d6" }],
       edges: [],
     },
+    reqDisplay: "N, V d6",
   },
 
   {
@@ -93,6 +99,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["attractive"],
     },
+    reqDisplay: "N, Attractive",
   },
 
   {
@@ -107,6 +114,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N",
   },
 
   {
@@ -120,6 +128,7 @@ const backgroundEdges = [
       attributes: [{ id: "spirit", value: "d6" }],
       edges: [],
     },
+    reqDisplay: "N, Sp d6",
   },
 
   {
@@ -137,6 +146,7 @@ const backgroundEdges = [
       ],
       edges: [],
     },
+    reqDisplay: "N, St d6, V d6",
   },
 
   {
@@ -154,6 +164,7 @@ const backgroundEdges = [
       ],
       edges: [],
     },
+    reqDisplay: "N, St d6, V d6",
   },
 
   {
@@ -167,6 +178,7 @@ const backgroundEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, Sp d8",
   },
 
   {
@@ -180,6 +192,7 @@ const backgroundEdges = [
       attributes: [{ id: "spirit", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, Sp d8",
   },
 
   {
@@ -194,6 +207,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N",
   },
 
   {
@@ -208,6 +222,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["fame"],
     },
+    reqDisplay: "S, Fame",
   },
 
   {
@@ -222,6 +237,7 @@ const backgroundEdges = [
       attributes: [{ id: "vigor", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, V d8",
   },
 
   {
@@ -235,6 +251,26 @@ const backgroundEdges = [
       attributes: [{ id: "agility", value: "d6" }],
       edges: [],
     },
+    reqDisplay: "N, A d6",
+  },
+
+  {
+    id: "linquist",
+    name: "Linquist",
+    type: "background",
+    description: "Character has d6 in languages equal to half her Smarts die.",
+    req: {
+      tier: "novice",
+      skills: [
+        {
+          id: "smarts",
+          value: "d6",
+        },
+      ],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "N",
   },
 
   {
@@ -248,6 +284,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N",
   },
 
   {
@@ -261,6 +298,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["luck"],
     },
+    reqDisplay: "N, Luck",
   },
 
   {
@@ -274,6 +312,7 @@ const backgroundEdges = [
       attributes: [{ id: "agility", value: "d8" }],
       edges: [],
     },
+    reqDisplay: "N, A d8",
   },
 
   {
@@ -287,6 +326,7 @@ const backgroundEdges = [
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N",
   },
 
   {
@@ -300,6 +340,7 @@ const backgroundEdges = [
       attributes: [],
       edges: ["rich"],
     },
+    reqDisplay: "N, Rich",
   },
 ];
 

@@ -1,30 +1,123 @@
 const socialEdges = [
   {
+    id: "bolster",
+    name: "Bolster",
+    type: "social",
+    description: "May remove Distracted or Vulnerable state after a Test.",
+    req: {
+      tier: "novice",
+      skills: [],
+      attributes: ["spirit"],
+      edges: [],
+    },
+    reqDisplay: "N, Spirit d8",
+  },
+  {
+    id: "commonBond",
+    name: "Common Bond",
+    type: "social",
+    description: "The hero may freely give her Bennies to others.",
+    req: {
+      tier: "wildcard",
+      skills: [],
+      attributes: ["spirit"],
+      edges: [],
+    },
+    reqDisplay: "WC, N, Spirit d8",
+  },
+  {
     id: "connections",
     name: "Connections",
     type: "social",
-    description: "Contacts provide aid or favors once per session.",
+    description: "Contacts provide aid or other favors once per session.",
     req: {
       tier: "novice",
       skills: [],
       attributes: [],
       edges: [],
     },
+    reqDisplay: "N",
   },
-
   {
-    id: "commonBond",
-    name: "Common Bond",
+    id: "humiliate",
+    name: "Humiliate",
     type: "social",
-    description: "The hero may freely give Bennies to others.",
+    description: "Free reroll when making Taunt rolls.",
+    req: {
+      tier: "novice",
+      skills: ["taunt"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "N, Taunt d8",
+  },
+  {
+    id: "menacing",
+    name: "Menacing",
+    type: "social",
+    description: "+2 to Intimidation.",
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "spirit", value: "d8" }],
+      attributes: [],
       edges: [],
     },
+    reqDisplay: "N, See Text",
   },
-
+  {
+    id: "provoke",
+    name: "Provoke",
+    type: "social",
+    description: "May provoke foes with a raise on a Taunt roll.",
+    req: {
+      tier: "novice",
+      skills: ["taunt"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "N, Taunt d6",
+  },
+  {
+    id: "rabbleRouser",
+    name: "Rabble-Rouser",
+    type: "social",
+    description:
+      "Affect all foes in a Medium Blast Template with an Intimidation or Taunt Test. Limited action.",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: ["spirit"],
+      edges: [],
+    },
+    reqDisplay: "S, Spirit d8",
+  },
+  {
+    id: "reliable",
+    name: "Reliable",
+    type: "social",
+    description: "Free reroll when making Support rolls.",
+    req: {
+      tier: "novice",
+      skills: [],
+      attributes: ["spirit"],
+      edges: [],
+    },
+    reqDisplay: "N, Spirit d8",
+  },
+  {
+    id: "retort",
+    name: "Retort",
+    type: "social",
+    description:
+      "A raise when resisting a Taunt or Intimidation attack makes the foe Distracted.",
+    req: {
+      tier: "novice",
+      skills: ["taunt"],
+      attributes: [],
+      edges: [],
+    },
+    reqDisplay: "N, Taunt d6",
+  },
   {
     id: "streetwise",
     name: "Streetwise",
@@ -33,11 +126,11 @@ const socialEdges = [
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "smarts", value: "d6" }],
+      attributes: ["smarts"],
       edges: [],
     },
+    reqDisplay: "N, Smarts d6",
   },
-
   {
     id: "strongWilled",
     name: "Strong Willed",
@@ -46,9 +139,50 @@ const socialEdges = [
     req: {
       tier: "novice",
       skills: [],
-      attributes: [{ id: "spirit", value: "d8" }],
+      attributes: ["spirit"],
       edges: [],
     },
+    reqDisplay: "N, Spirit d8",
+  },
+  {
+    id: "ironWill",
+    name: "Iron Will",
+    type: "social",
+    description: "The bonus now applies to resisting and recovery from powers.",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: [],
+      edges: ["brave", "strongWilled"],
+    },
+    reqDisplay: "S, Brave, Strong Willed",
+  },
+  {
+    id: "workTheRoom",
+    name: "Work the Room",
+    type: "social",
+    description:
+      "Roll a second die when Supporting via Performance or Persuasion and apply result to an additional ally. Limited action.",
+    req: {
+      tier: "novice",
+      skills: [],
+      attributes: ["spirit"],
+      edges: [],
+    },
+    reqDisplay: "N, Spirit d8",
+  },
+  {
+    id: "workTheCrowd",
+    name: "Work the Crowd",
+    type: "social",
+    description: "As Work the Room, but roll a third die. Limited action.",
+    req: {
+      tier: "seasoned",
+      skills: [],
+      attributes: [],
+      edges: ["workTheRoom"],
+    },
+    reqDisplay: "S, Work the Room",
   },
 ];
 

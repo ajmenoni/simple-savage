@@ -33,6 +33,7 @@ function App() {
     attributePointsSpent: 0,
     skills: initCoreSkills,
     skillPointsSpent: 0,
+    edges: [],
   });
 
   return (

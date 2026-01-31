@@ -10,7 +10,7 @@ export function useToggleSelection(setCharacter) {
         return {
           ...prev,
           [field]: exists
-            ? list.filter((h) => h.id !== item.id)
+            ? list.filter((i) => i.id !== item.id)
             : [...list, { ...item }],
         };
       });

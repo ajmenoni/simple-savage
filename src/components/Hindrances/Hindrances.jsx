@@ -50,9 +50,9 @@ function Hindrances({ character, setCharacter }) {
   }
 
   return (
-    <Card>
+    <Card className={"slide slide-in-bottom"}>
       {!showItemSelect ? (
-        <div className="slide slide-in-bottom">
+        <>
           <h2>Hindrances</h2>
           <div className="items-container">
             {character.hindrances.map((hindrance) => (
@@ -65,7 +65,7 @@ function Hindrances({ character, setCharacter }) {
           </div>
 
           <Button text="Select Hindrances" onClick={openSelect} />
-        </div>
+        </>
       ) : (
         <HindranceSelect
           character={character}
