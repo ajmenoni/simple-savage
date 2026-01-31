@@ -53,7 +53,7 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
 
   function handleFilter(type) {
     setActiveTypes((prev) =>
-      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type],
     );
   }
 
@@ -84,7 +84,7 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
               <div className="item-card-title">
                 {item.name} ({item.type})
               </div>
-              <div></div>
+              <div className="edge-req">{item.reqDisplay}</div>
               <div>{item.description}</div>
             </>
           )}

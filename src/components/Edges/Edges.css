@@ -12,3 +12,8 @@ button.pill.edge-pill {
 .filter-group {
   margin-bottom: 0.5rem;
 }
+
+.edge-req {
+  color: var(--savage-yellow);
+  font-size: x-small;
+}
