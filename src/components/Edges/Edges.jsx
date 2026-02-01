@@ -3,7 +3,7 @@ import { useState } from "react";
 import Card from "../Card";
 import Button from "../Button/Button";
 import EdgesSelect from "./EdgesSelect";
-import Delete from "../Delete/Delete";
+import CharItem from "../CharItem/CharItem";
 
 import { useToggleSelection } from "../../hooks/useToggleSelection";
 import { useSlide } from "../../hooks/useSlide";
@@ -13,7 +13,6 @@ import "../../App.css";
 import "../../styles/animation.css";
 
 function Edges({ character, setCharacter }) {
-  console.log(character.edges);
   const [showItemSelect, setShowItemSelect] = useState(false);
   const toggleSelection = useToggleSelection(setCharacter);
 
@@ -30,6 +29,7 @@ function Edges({ character, setCharacter }) {
       setShowItemSelect(false);
     }, 300);
   }
+
   return (
     <Card className={"slide slide-in-bottom"}>
       {!showItemSelect ? (
@@ -37,10 +37,10 @@ function Edges({ character, setCharacter }) {
           <h2>Edges</h2>
           <div className="items-container">
             {character.edges.map((edge) => (
-              <CharEdge
+              <CharItem
                 key={edge.id}
-                edge={edge}
-                toggleSelection={toggleSelection}
+                item={edge}
+                onDelete={() => toggleSelection("edges", edge)}
               />
             ))}
           </div>
@@ -55,18 +55,6 @@ function Edges({ character, setCharacter }) {
         />
       )}
     </Card>
-  );
-}
-
-function CharEdge({ edge, toggleSelection }) {
-  return (
-    <div className={`trait-container trait-container--stacked `}>
-      <span className="title top-title">{edge.name}</span>
-      <div className="trait-row">
-        <span>{edge.description}</span>
-        <Delete onClick={() => toggleSelection("edges", edge)} />
-      </div>
-    </div>
   );
 }
 

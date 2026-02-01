@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Button from "../Button/Button";
 import Card from "../Card";
-import Delete from "../Delete/Delete";
 import HindranceSelect from "./HindranceSelect";
+import CharItem from "../CharItem/CharItem";
 
 import { useToggleSelection } from "../../hooks/useToggleSelection";
 import { useSlide } from "../../hooks/useSlide";
@@ -30,25 +30,6 @@ function Hindrances({ character, setCharacter }) {
     }, 300);
   }
 
-  function CharHindrance({ hindrance, selectedHindrances }) {
-    const isSelected = selectedHindrances.some((h) => h.id === hindrance.id);
-    return (
-      <div
-        className={`trait-container trait-container--stacked ${
-          isSelected ? "selected" : ""
-        }`}
-      >
-        <span className="title top-title">
-          {hindrance.name} ({hindrance.selectedSeverity})
-        </span>
-        <div className="trait-row">
-          <span>{hindrance.description}</span>
-          <Delete onClick={() => toggleSelection("hindrances", hindrance)} />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <Card className={"slide slide-in-bottom"}>
       {!showItemSelect ? (
@@ -56,10 +37,11 @@ function Hindrances({ character, setCharacter }) {
           <h2>Hindrances</h2>
           <div className="items-container">
             {character.hindrances.map((hindrance) => (
-              <CharHindrance
+              <CharItem
                 key={hindrance.id}
-                hindrance={hindrance}
-                selectedHindrances={character.hindrances}
+                item={hindrance}
+                titleExtra={`(${hindrance.selectedSeverity})`}
+                onDelete={() => toggleSelection("hindrances", hindrance)}
               />
             ))}
           </div>
