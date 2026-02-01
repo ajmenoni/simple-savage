@@ -60,8 +60,6 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
 
   function handleSelection(field, item, selected) {
     toggleSelection(field, item);
-
-    console.log(selected);
   }
 
   return (
@@ -81,6 +79,7 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
           );
         })}{" "}
       </div>
+
       <div className={slideClass}>
         <Search value={search} onChange={setSearch} />
 
@@ -102,6 +101,7 @@ function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
             </>
           )}
         />
+
         <Button text={"Done"} onClick={onDone} />
       </div>
     </>
