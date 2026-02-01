@@ -16,7 +16,6 @@ import { useState } from "react";
 import "./Edges.css";
 
 function EdgesSelect({ slideClass, onDone, character, toggleSelection }) {
-  console.log(character);
   const [search, setSearch] = useState("");
   const [activeTypes, setActiveTypes] = useState([]);
 
