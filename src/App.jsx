@@ -64,6 +64,10 @@ function App() {
           <Edges character={character} setCharacter={setCharacter} />
         )}
 
+        {step === 6 && (
+          <Powers character={character} setCharacter={setCharacter} />
+        )}
+
         {step > 0 && (
           <div className="side-by-side-buttons">
             <Button

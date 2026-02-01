@@ -30,6 +30,15 @@ function Edges({ character, setCharacter }) {
     }, 300);
   }
 
+  function isArcaneBackground(edge) {
+    if (!edge.arcaneSkill) {
+      return;
+    }
+
+    const arcaneText = `${edge.arcaneSkill}, Starting Powers: ${edge.startingPowers}, Power Points: ${edge.powerPoints}`;
+    return arcaneText;
+  }
+
   return (
     <Card className={"slide slide-in-bottom"}>
       {!showItemSelect ? (
@@ -40,6 +49,7 @@ function Edges({ character, setCharacter }) {
               <CharItem
                 key={edge.id}
                 item={edge}
+                descriptionExtra={isArcaneBackground(edge)}
                 onDelete={() => toggleSelection("edges", edge)}
               />
             ))}
