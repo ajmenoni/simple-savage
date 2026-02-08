@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import "./index.css";
 import "./App.css";
 import skills from "./data/skills";
@@ -20,6 +21,7 @@ const initCoreSkills = coreSkills.map((skill) => ({
 function App() {
   const MIN_STEP = 1;
   const [step, setStep] = useState(0);
+  const [done, setDone] = useState(false);
   const [character, setCharacter] = useState({
     name: "",
     concept: "",
@@ -39,6 +41,18 @@ function App() {
     edges: [],
     powers: [],
   });
+
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (!done) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [done]);
 
   return (
     <>
