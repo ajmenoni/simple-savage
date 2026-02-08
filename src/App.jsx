@@ -8,7 +8,10 @@ import Hindrances from "./components/Hindrances/Hindrances";
 import Attributes from "./components/Attributes/Attributes";
 import Skills from "./components/Skills/Skills";
 import Edges from "./components/Edges/Edges";
+import Powers from "./components/Powers/Powers";
+
 const coreSkills = skills.filter((skill) => skill.coreSkill === true);
+
 const initCoreSkills = coreSkills.map((skill) => ({
   ...skill,
   die: "d4",
@@ -34,6 +37,7 @@ function App() {
     skills: initCoreSkills,
     skillPointsSpent: 0,
     edges: [],
+    powers: [],
   });
 
   return (
