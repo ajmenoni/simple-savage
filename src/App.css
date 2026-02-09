@@ -80,7 +80,6 @@
   padding: 0.5rem 0.75rem;
   display: flex;
   align-items: center;
-
   /* background-color: #2a2a2a; */
 
   transform: translateY(1px);
@@ -101,6 +100,7 @@
 .trait-container--stacked {
   flex-direction: column;
   align-items: stretch;
+  min-width: 23rem;
 }
 
 .trait-container--stacked .trait-row {
@@ -110,7 +110,10 @@
 }
 
 .trait-container--stacked .trait-row span {
+  max-width: 23rem;
   flex: 1;
+  word-wrap: break-word;
+  margin-right: 0.2rem;
 }
 
 .title {

@@ -9,6 +9,7 @@ import Hindrances from "./components/Hindrances/Hindrances";
 import Attributes from "./components/Attributes/Attributes";
 import Skills from "./components/Skills/Skills";
 import Edges from "./components/Edges/Edges";
+import Gear from "./components/Gear/Gear";
 import Powers from "./components/Powers/Powers";
 
 const coreSkills = skills.filter((skill) => skill.coreSkill === true);
@@ -40,6 +41,7 @@ function App() {
     skillPointsSpent: 0,
     edges: [],
     powers: [],
+    items: [],
   });
 
   useEffect(() => {
@@ -84,6 +86,10 @@ function App() {
 
         {step === 6 && (
           <Powers character={character} setCharacter={setCharacter} />
+        )}
+
+        {step === 7 && (
+          <Gear character={character} setCharacter={setCharacter} />
         )}
 
         {step > 0 && (
