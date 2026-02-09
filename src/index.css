@@ -96,7 +96,6 @@ button:focus-visible {
 }
 
 .card button {
-  width: 300px;
   margin: 0;
   margin-top: 0.5rem;
 }
