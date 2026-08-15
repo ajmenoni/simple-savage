@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import charOutline from "./assets/char_outline.svg";
 import "./index.css";
 import "./App.css";
 import skills from "./data/skills";
@@ -59,7 +60,16 @@ function App() {
   return (
     <>
       <div className="app-container">
-        <h1>Simple Savage</h1>
+        <div className="app-header">
+          <h1>Simple Savage</h1>
+          {step >= 1 && (
+            <img
+              src={charOutline}
+              alt="Character outline illustration"
+              className="character-outline"
+            />
+          )}
+        </div>
         {step === 0 && (
           <Button text={"Build Character"} onClick={() => setStep(1)} />
         )}
