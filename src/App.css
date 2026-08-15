@@ -42,7 +42,92 @@
   opacity: 0.9;
   align-self: flex-end;
   margin-right: 1rem;
+  cursor: pointer;
   filter: drop-shadow(0 0 4px rgba(255, 199, 44, 0.15));
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+  z-index: 20;
+}
+
+.drawer-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80vw;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.98);
+  border-right: 2px solid rgba(255, 199, 44, 0.35);
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.45);
+  transform: translateX(-105%);
+  transition: transform 0.3s ease;
+  z-index: 30;
+  padding: 1.25rem 1rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-close-button {
+  align-self: flex-end;
+  background: var(--savage-orange);
+  color: #1b1b1b;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.drawer-content {
+  margin-top: 1rem;
+  color: #f2f2f2;
+  text-align: left;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.drawer-content h2 {
+  color: var(--savage-yellow);
+  margin: 0 0 0.75rem;
+}
+
+.drawer-section {
+  margin-bottom: 1rem;
+}
+
+.drawer-section h3 {
+  color: var(--savage-orange);
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.drawer-section p,
+.drawer-section li {
+  margin: 0.15rem 0;
+  color: #f2f2f2;
+}
+
+.drawer-section ul {
+  margin: 0;
+  padding-left: 1.25rem;
 }
 
 .card {

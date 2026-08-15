@@ -24,6 +24,7 @@ function App() {
   const MIN_STEP = 1;
   const [step, setStep] = useState(0);
   const [done, setDone] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [character, setCharacter] = useState({
     name: "",
     concept: "",
@@ -67,9 +68,31 @@ function App() {
               src={charOutline}
               alt="Character outline illustration"
               className="character-outline"
+              onClick={() => setDrawerOpen(true)}
             />
           )}
         </div>
+
+        <div
+          className={`drawer-backdrop ${drawerOpen ? "open" : ""}`}
+          onClick={() => setDrawerOpen(false)}
+          aria-hidden={!drawerOpen}
+        />
+
+        <aside className={`side-drawer ${drawerOpen ? "open" : ""}`}>
+          <button
+            type="button"
+            className="drawer-close-button"
+            onClick={() => setDrawerOpen(false)}
+          >
+            Close
+          </button>
+          <div className="drawer-content">
+            <h2>Character Outline</h2>
+            <p>Drawer contents can go here.</p>
+          </div>
+        </aside>
+
         {step === 0 && (
           <Button text={"Build Character"} onClick={() => setStep(1)} />
         )}
