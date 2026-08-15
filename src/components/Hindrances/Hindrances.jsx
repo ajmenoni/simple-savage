@@ -4,7 +4,6 @@ import Card from "../Card";
 import HindranceSelect from "./HindranceSelect";
 import CharItem from "../CharItem/CharItem";
 
-import { useToggleSelection } from "../../hooks/useToggleSelection";
 import { useSlide } from "../../hooks/useSlide";
 import SLIDE from "../../constants/slideDirections";
 
@@ -14,9 +13,53 @@ import "../../styles/animation.css";
 
 function Hindrances({ character, setCharacter }) {
   const [showItemSelect, setShowItemSelect] = useState(false);
-  const toggleSelection = useToggleSelection(setCharacter);
 
   const selectSlide = useSlide(SLIDE.LEFT);
+
+  function getHindranceValue(severity) {
+    const normalized = String(severity || "minor").toLowerCase();
+    return normalized === "major" ? 2 : 1;
+  }
+
+  function toggleSelection(field, item) {
+    if (field !== "hindrances") {
+      return;
+    }
+
+    setCharacter((prev) => {
+      const list = Array.isArray(prev[field]) ? prev[field] : [];
+      const selectedItem = list.find((entry) => entry.id === item.id);
+      const severityValue = getHindranceValue(
+        item.selectedSeverity ?? item.severity?.[0] ?? "minor",
+      );
+
+      if (selectedItem) {
+        const updatedList = list.filter((entry) => entry.id !== item.id);
+        const nextPoints =
+          (prev.hindrancePoints ?? 0) -
+          getHindranceValue(
+            selectedItem.selectedSeverity ??
+              selectedItem.severity?.[0] ??
+              "minor",
+          );
+
+        return {
+          ...prev,
+          [field]: updatedList,
+          hindrancePoints: Math.max(0, nextPoints),
+        };
+      }
+
+      const updatedList = [...list, { ...item }];
+      const nextPoints = (prev.hindrancePoints ?? 0) + severityValue;
+
+      return {
+        ...prev,
+        [field]: updatedList,
+        hindrancePoints: nextPoints,
+      };
+    });
+  }
 
   function openSelect() {
     selectSlide.slideIn(SLIDE.LEFT);
