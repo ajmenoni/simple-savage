@@ -12,6 +12,7 @@ import Skills from "./components/Skills/Skills";
 import Edges from "./components/Edges/Edges";
 import Gear from "./components/Gear/Gear";
 import Powers from "./components/Powers/Powers";
+import Drawer from "./components/Drawer/Drawer";
 
 const coreSkills = skills.filter((skill) => skill.coreSkill === true);
 
@@ -73,25 +74,13 @@ function App() {
           )}
         </div>
 
-        <div
-          className={`drawer-backdrop ${drawerOpen ? "open" : ""}`}
-          onClick={() => setDrawerOpen(false)}
-          aria-hidden={!drawerOpen}
-        />
-
-        <aside className={`side-drawer ${drawerOpen ? "open" : ""}`}>
-          <button
-            type="button"
-            className="drawer-close-button"
-            onClick={() => setDrawerOpen(false)}
-          >
-            Close
-          </button>
-          <div className="drawer-content">
-            <h2>Character Outline</h2>
-            <p>Drawer contents can go here.</p>
-          </div>
-        </aside>
+        <Drawer
+          isOpen={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          title="Character Outline"
+        >
+          <p>Drawer contents can go here.</p>
+        </Drawer>
 
         {step === 0 && (
           <Button text={"Build Character"} onClick={() => setStep(1)} />
