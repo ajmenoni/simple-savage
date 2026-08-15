@@ -130,6 +130,64 @@
   padding-left: 1.25rem;
 }
 
+.hindrance-summary-row {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.hindrance-stat-block {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid rgba(255, 199, 44, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hindrance-stat-block p,
+.hindrance-stat-block h3,
+.hindrance-stat-block .hindrance-counter {
+  text-align: center;
+}
+
+.hindrance-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.drawer-counter-button {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--savage-orange);
+  color: #1b1b1b;
+  font-size: 0.9rem;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.drawer-counter span {
+  min-width: 1.5rem;
+  text-align: center;
+  color: var(--savage-yellow);
+  font-weight: 700;
+}
+
 .card {
   border-radius: 12px;
   margin-top: 0;
