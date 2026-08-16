@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CharItem from "../CharItem/CharItem";
+import { powerDetails } from "../../utils/powerDetailDisplay";
 
 const noSelectionMessage = (
   <>
@@ -23,6 +24,11 @@ function CharacterSummary({ character }) {
     ];
 
     return `Req: ${reqs.join(", ")}`;
+  }
+
+  function handlePowerDetails(power) {
+    const details = powerDetails(power);
+    return details;
   }
 
   return (
@@ -138,6 +144,48 @@ function CharacterSummary({ character }) {
         ) : (
           <p>
             <i>No Edges selected</i>
+          </p>
+        )}
+      </div>
+
+      <div className="drawer-section">
+        <h3>Powers</h3>
+        {character.edges?.length ? (
+          <div className="char-info">
+            {character.edges.map((edge) => (
+              <CharItem
+                key={edge.id}
+                item={edge}
+                titleExtra={`(${edge.type})`}
+                descriptionExtra={edgeReqs(edge)}
+                canDelete={false}
+              />
+            ))}
+          </div>
+        ) : (
+          <p>
+            <i>No Edges selected</i>
+          </p>
+        )}
+      </div>
+
+      <div className="drawer-section">
+        <h3>Powers</h3>
+        {character.powers?.length ? (
+          <div className="char-info">
+            {character.powers.map((power) => (
+              <CharItem
+                key={power.id}
+                item={power}
+                // titleExtra={`(${edge.type})`}
+                descriptionExtra={handlePowerDetails(power)}
+                canDelete={false}
+              />
+            ))}
+          </div>
+        ) : (
+          <p>
+            <i>No Powers selected</i>
           </p>
         )}
       </div>
