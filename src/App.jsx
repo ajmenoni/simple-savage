@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import charOutline from "./assets/char_outline.svg";
 import "./index.css";
 import "./App.css";
 import skills from "./data/skills";
@@ -11,6 +12,8 @@ import Skills from "./components/Skills/Skills";
 import Edges from "./components/Edges/Edges";
 import Gear from "./components/Gear/Gear";
 import Powers from "./components/Powers/Powers";
+import Drawer from "./components/Drawer/Drawer";
+import CharacterSummary from "./components/Drawer/CharacterSummary";
 
 const coreSkills = skills.filter((skill) => skill.coreSkill === true);
 
@@ -23,6 +26,7 @@ function App() {
   const MIN_STEP = 1;
   const [step, setStep] = useState(0);
   const [done, setDone] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [character, setCharacter] = useState({
     name: "",
     concept: "",
@@ -59,7 +63,29 @@ function App() {
   return (
     <>
       <div className="app-container">
-        <h1>Simple Savage</h1>
+        <div className="app-header">
+          <h1>Simple Savage</h1>
+          {step >= 1 && (
+            <img
+              src={charOutline}
+              alt="Character outline illustration"
+              className="character-outline"
+              onClick={() => {
+                console.log(character);
+                setDrawerOpen(true);
+              }}
+            />
+          )}
+        </div>
+
+        <Drawer
+          isOpen={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          title="Character Outline"
+        >
+          <CharacterSummary character={character} />
+        </Drawer>
+
         {step === 0 && (
           <Button text={"Build Character"} onClick={() => setStep(1)} />
         )}

@@ -2,7 +2,13 @@ import Delete from "../Delete/Delete";
 
 import "./CharItem.css";
 
-function CharItem({ item, titleExtra, descriptionExtra, onDelete }) {
+function CharItem({
+  item,
+  titleExtra,
+  descriptionExtra,
+  onDelete,
+  canDelete = true,
+}) {
   return (
     <div className={`trait-container trait-container--stacked `}>
       <span className="title top-title">
@@ -13,7 +19,8 @@ function CharItem({ item, titleExtra, descriptionExtra, onDelete }) {
       )}
       <div className="trait-row">
         <span>{item.description}</span>
-        <Delete onClick={onDelete} />
+
+        {canDelete && <Delete onClick={onDelete} />}
       </div>
     </div>
   );

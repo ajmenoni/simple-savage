@@ -1,8 +1,10 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0.5rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .app-container {
@@ -12,19 +14,254 @@
   justify-content: flex-start;
   padding: 0.5rem;
   min-height: 80vh;
+  width: 100%;
   box-sizing: border-box;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
 }
 
 .app-container h1 {
   color: var(--savage-yellow);
   font-size: 2rem;
   margin-top: 1rem;
+  margin-bottom: 0.2rem;
   text-align: center;
+}
+
+.character-outline {
+  width: 52px;
+  height: auto;
+  margin: 0;
+  opacity: 0.9;
+  align-self: flex-end;
+  margin-right: 1rem;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px rgba(255, 199, 44, 0.15));
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+  z-index: 20;
+}
+
+.drawer-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80vw;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.98);
+  border-right: 2px solid rgba(255, 199, 44, 0.35);
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.45);
+  transform: translateX(-105%);
+  transition: transform 0.3s ease;
+  z-index: 30;
+  padding: 1.25rem 1rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-close-button {
+  align-self: flex-end;
+  background: var(--savage-orange);
+  color: #1b1b1b;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.drawer-content {
+  margin-top: 1rem;
+  color: #f2f2f2;
+  text-align: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.25rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.drawer-content h2 {
+  color: var(--savage-yellow);
+  margin: 0 0 0.75rem;
+}
+
+.drawer-section {
+  margin-bottom: 1rem;
+}
+
+.drawer-section h3 {
+  color: var(--savage-orange);
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.drawer-section p,
+.drawer-section li {
+  margin: 0.15rem 0;
+  color: #f2f2f2;
+}
+
+.drawer-section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.gear-item {
+  background: rgba(255, 199, 44, 0.03);
+  border-radius: 8px;
+  padding: 0.4rem 0.55rem;
+  margin: 0;
+}
+
+.gear-title + .gear-detail,
+.gear-detail + .gear-detail,
+.gear-detail + .gear-notes,
+.gear-notes {
+  margin-top: 0.2rem;
+}
+
+.gear-detail,
+.gear-notes {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.side-drawer .char-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.side-drawer .char-info .trait-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+  transform: none;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+}
+
+.side-drawer .char-info .trait-container:hover {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.side-drawer .char-info .trait-container .title,
+.side-drawer .char-info .trait-container .trait-row,
+.side-drawer .char-info .trait-container .trait-row span,
+.side-drawer .char-info .trait-container .power-desc {
+  font-size: 0.8rem;
+}
+
+.side-drawer .char-info .trait-container .icon-button,
+.side-drawer .char-info .trait-container .trashcan,
+.side-drawer .char-info .trait-container button,
+.side-drawer .char-info .trait-container [role="button"] {
+  pointer-events: none;
+  cursor: default;
+}
+
+.hindrance-summary-row {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.hindrance-point-info {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid rgba(255, 199, 44, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hindrance-point-info p,
+.hindrance-point-info h3,
+.hindrance-point-info .hindrance-counter {
+  text-align: center;
+}
+
+.hindrance-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.drawer-counter-button {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--savage-orange);
+  color: #1b1b1b;
+  font-size: 0.9rem;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.drawer-counter span {
+  min-width: 1.5rem;
+  text-align: center;
+  color: var(--savage-yellow);
+  font-weight: 700;
 }
 
 .card {
   border-radius: 12px;
-  margin-top: 1.5rem;
+  margin-top: 0;
   width: 100%;
   max-width: 400px;
   min-height: 35rem;
@@ -32,7 +269,7 @@
 }
 
 .card--default {
-  /* padding: 1rem; */
+  margin-top: 0;
 }
 
 .card--compact {
