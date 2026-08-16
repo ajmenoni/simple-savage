@@ -185,7 +185,7 @@
   width: 100%;
 }
 
-.hindrance-stat-block {
+.hindrance-point-info {
   flex: 1;
   min-width: 0;
   border: 1px solid rgba(255, 199, 44, 0.2);
@@ -198,9 +198,9 @@
   justify-content: space-between;
 }
 
-.hindrance-stat-block p,
-.hindrance-stat-block h3,
-.hindrance-stat-block .hindrance-counter {
+.hindrance-point-info p,
+.hindrance-point-info h3,
+.hindrance-point-info .hindrance-counter {
   text-align: center;
 }
 

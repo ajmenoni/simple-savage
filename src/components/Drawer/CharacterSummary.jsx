@@ -14,6 +14,17 @@ function CharacterSummary({ character }) {
     setSpentHindrancePoints((prev) => Math.max(0, prev + amountToAdjust));
   }
 
+  function edgeReqs(edge) {
+    const reqs = [
+      edge.req.tier,
+      ...edge.req.skills,
+      ...edge.req.attributes,
+      ...edge.req.edges,
+    ];
+
+    return `Req: ${reqs.join(", ")}`;
+  }
+
   return (
     <>
       <div className="drawer-section">
@@ -59,12 +70,12 @@ function CharacterSummary({ character }) {
       </div>
 
       <div className="hindrance-summary-row">
-        <div className="drawer-section hindrance-stat-block">
+        <div className="drawer-section hindrance-point-info">
           <h3>Hindrance Points</h3>
           <p>{character.hindrancePoints ?? 0}</p>
         </div>
 
-        <div className="drawer-section hindrance-stat-block">
+        <div className="drawer-section hindrance-point-info">
           <h3>Spent</h3>
           <div className="hindrance-counter">
             <button
@@ -91,11 +102,17 @@ function CharacterSummary({ character }) {
       <div className="drawer-section">
         <h3>Edges</h3>
         {character.edges?.length ? (
-          <ul>
+          <div className="char-info">
             {character.edges.map((edge) => (
-              <li key={edge.id}>{edge.name}</li>
+              <CharItem
+                key={edge.id}
+                item={edge}
+                titleExtra={`(${edge.type})`}
+                descriptionExtra={edgeReqs(edge)}
+                canDelete={false}
+              />
             ))}
-          </ul>
+          </div>
         ) : (
           <p>
             <i>No Edges selected</i>
