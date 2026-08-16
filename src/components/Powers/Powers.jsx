@@ -12,6 +12,8 @@ import "../../styles/animation.css";
 
 import { useState } from "react";
 
+import { powerDetails } from "../../utils/powerDetailDisplay";
+
 function Powers({ character, setCharacter }) {
   const [showItemSelect, setShowItemSelect] = useState(false);
 
@@ -32,7 +34,8 @@ function Powers({ character, setCharacter }) {
   }
 
   function handleDetailDisplay(power) {
-    return `Rank: ${power.rank}, Power Points: ${power.powerPoints}, Range: ${power.range}, Duration: ${power.duration}`;
+    const details = powerDetails(power);
+    return details;
   }
 
   return (
