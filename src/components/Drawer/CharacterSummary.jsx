@@ -100,6 +100,28 @@ function CharacterSummary({ character }) {
       </div>
 
       <div className="drawer-section">
+        <h3>Attributes</h3>
+        <div>
+          {Object.entries(character.attributes).map(([name, value]) => (
+            <div key={name}>
+              {name.charAt(0).toUpperCase() + name.slice(1)}: {value}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="drawer-section">
+        <h3>Skills</h3>
+        <div>
+          {character.skills.map((skill) => (
+            <div key={skill.id}>
+              {skill.name}: {skill.die}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="drawer-section">
         <h3>Edges</h3>
         {character.edges?.length ? (
           <div className="char-info">

@@ -70,7 +70,10 @@ function App() {
               src={charOutline}
               alt="Character outline illustration"
               className="character-outline"
-              onClick={() => setDrawerOpen(true)}
+              onClick={() => {
+                console.log(character);
+                setDrawerOpen(true);
+              }}
             />
           )}
         </div>
