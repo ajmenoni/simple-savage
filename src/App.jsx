@@ -14,6 +14,7 @@ import Gear from "./components/Gear/Gear";
 import Powers from "./components/Powers/Powers";
 import Drawer from "./components/Drawer/Drawer";
 import CharacterSummary from "./components/Drawer/CharacterSummary";
+import Character from "./components/Character/Character";
 
 const coreSkills = skills.filter((skill) => skill.coreSkill === true);
 
@@ -118,6 +119,11 @@ function App() {
           <Gear character={character} setCharacter={setCharacter} />
         )}
 
+        {step === 8 && (
+          <Character character={character} setCharacter={setCharacter} />
+        )}
+
+        {/* navigation buttons */}
         {step > 0 && (
           <div className="side-by-side-buttons">
             <Button
@@ -125,11 +131,13 @@ function App() {
               text={"Previous"}
               onClick={() => setStep((prev) => Math.max(prev - 1, MIN_STEP))}
             />
-            <Button
-              className={"bottom-nav-button"}
-              text={"Next"}
-              onClick={() => setStep((prev) => prev + 1)}
-            />
+            {step < 8 && (
+              <Button
+                className={"bottom-nav-button"}
+                text={step === 7 ? "Finish" : "Next"}
+                onClick={() => setStep((prev) => prev + 1)}
+              />
+            )}
           </div>
         )}
       </div>
