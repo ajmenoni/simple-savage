@@ -101,7 +101,10 @@
   color: #f2f2f2;
   text-align: left;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 0.25rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .drawer-content h2 {
@@ -128,6 +131,52 @@
 .drawer-section ul {
   margin: 0;
   padding-left: 1.25rem;
+}
+
+.side-drawer .char-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.side-drawer .char-info .trait-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+  transform: none;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+}
+
+.side-drawer .char-info .trait-container:hover {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.side-drawer .char-info .trait-container .title,
+.side-drawer .char-info .trait-container .trait-row,
+.side-drawer .char-info .trait-container .trait-row span,
+.side-drawer .char-info .trait-container .power-desc {
+  font-size: 0.8rem;
+}
+
+.side-drawer .char-info .trait-container .icon-button,
+.side-drawer .char-info .trait-container .trashcan,
+.side-drawer .char-info .trait-container button,
+.side-drawer .char-info .trait-container [role="button"] {
+  pointer-events: none;
+  cursor: default;
 }
 
 .hindrance-summary-row {

@@ -1,4 +1,11 @@
 import { useState } from "react";
+import CharItem from "../CharItem/CharItem";
+
+const noSelectionMessage = (
+  <>
+    <i>No info entered yet</i>
+  </>
+);
 
 function CharacterSummary({ character }) {
   const [spentHindrancePoints, setSpentHindrancePoints] = useState(0);
@@ -11,31 +18,43 @@ function CharacterSummary({ character }) {
     <>
       <div className="drawer-section">
         <h3>Name</h3>
-        <p>{character.name || "Not set"}</p>
+        <p>{character.name || noSelectionMessage}</p>
       </div>
 
       <div className="drawer-section">
         <h3>Concept</h3>
-        <p>{character.concept || "Not set"}</p>
+        <p>{character.concept || noSelectionMessage}</p>
       </div>
 
       <div className="drawer-section">
         <h3>Ancestry</h3>
-        <p>{character.ancestry?.name || "Not set"}</p>
+        <p>{character.ancestry?.name || noSelectionMessage}</p>
       </div>
 
       <div className="drawer-section">
         <h3>Hindrances</h3>
         {character.hindrances?.length ? (
-          <ul>
+          // <ul>
+          //   {character.hindrances.map((hindrance) => (
+          //     <li key={hindrance.id}>
+          //       {hindrance.name} ({hindrance.selectedSeverity})
+          //     </li>
+          //   ))}
+          // </ul>
+          <div className="char-info">
             {character.hindrances.map((hindrance) => (
-              <li key={hindrance.id}>
-                {hindrance.name} ({hindrance.selectedSeverity})
-              </li>
+              <CharItem
+                key={hindrance.id}
+                item={hindrance}
+                titleExtra={`(${hindrance.selectedSeverity})`}
+                canDelete={false}
+              />
             ))}
-          </ul>
+          </div>
         ) : (
-          <p>None selected</p>
+          <p>
+            <i>No Hindrances selected</i>
+          </p>
         )}
       </div>
 
@@ -67,6 +86,21 @@ function CharacterSummary({ character }) {
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="drawer-section">
+        <h3>Edges</h3>
+        {character.edges?.length ? (
+          <ul>
+            {character.edges.map((edge) => (
+              <li key={edge.id}>{edge.name}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>
+            <i>No Edges selected</i>
+          </p>
+        )}
       </div>
     </>
   );
