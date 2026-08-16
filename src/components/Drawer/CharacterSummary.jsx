@@ -31,6 +31,32 @@ function CharacterSummary({ character }) {
     return details;
   }
 
+  function handleItemDisplay(item) {
+    return (
+      <div className="gear-item" key={item.id}>
+        <div className="gear-title">
+          <strong>{item.name}</strong>
+        </div>
+
+        {item.armor && <div className="gear-detail">Armor: +{item.armor}</div>}
+
+        {item.damage && (
+          <div className="gear-detail">Damage: {item.damage}</div>
+        )}
+
+        {item.minStr && (
+          <div className="gear-detail">Minimum Strength: d{item.minStr}</div>
+        )}
+
+        {item.notes && (
+          <div className="gear-notes">
+            <em>{item.notes}</em>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="drawer-section">
@@ -51,13 +77,6 @@ function CharacterSummary({ character }) {
       <div className="drawer-section">
         <h3>Hindrances</h3>
         {character.hindrances?.length ? (
-          // <ul>
-          //   {character.hindrances.map((hindrance) => (
-          //     <li key={hindrance.id}>
-          //       {hindrance.name} ({hindrance.selectedSeverity})
-          //     </li>
-          //   ))}
-          // </ul>
           <div className="char-info">
             {character.hindrances.map((hindrance) => (
               <CharItem
@@ -150,34 +169,12 @@ function CharacterSummary({ character }) {
 
       <div className="drawer-section">
         <h3>Powers</h3>
-        {character.edges?.length ? (
-          <div className="char-info">
-            {character.edges.map((edge) => (
-              <CharItem
-                key={edge.id}
-                item={edge}
-                titleExtra={`(${edge.type})`}
-                descriptionExtra={edgeReqs(edge)}
-                canDelete={false}
-              />
-            ))}
-          </div>
-        ) : (
-          <p>
-            <i>No Edges selected</i>
-          </p>
-        )}
-      </div>
-
-      <div className="drawer-section">
-        <h3>Powers</h3>
         {character.powers?.length ? (
           <div className="char-info">
             {character.powers.map((power) => (
               <CharItem
                 key={power.id}
                 item={power}
-                // titleExtra={`(${edge.type})`}
                 descriptionExtra={handlePowerDetails(power)}
                 canDelete={false}
               />
@@ -186,6 +183,19 @@ function CharacterSummary({ character }) {
         ) : (
           <p>
             <i>No Powers selected</i>
+          </p>
+        )}
+      </div>
+
+      <div className="drawer-section">
+        <h3>Gear & Items</h3>
+        {character.items?.length ? (
+          <div className="char-info">
+            {character.items.map((item) => handleItemDisplay(item))}
+          </div>
+        ) : (
+          <p>
+            <i>No gear or items added</i>
           </p>
         )}
       </div>

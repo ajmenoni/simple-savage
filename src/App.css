@@ -133,6 +133,28 @@
   padding-left: 1.25rem;
 }
 
+.gear-item {
+  background: rgba(255, 199, 44, 0.03);
+  border-radius: 8px;
+  padding: 0.4rem 0.55rem;
+  margin: 0;
+}
+
+.gear-title + .gear-detail,
+.gear-detail + .gear-detail,
+.gear-detail + .gear-notes,
+.gear-notes {
+  margin-top: 0.2rem;
+}
+
+.gear-detail,
+.gear-notes {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
 .side-drawer .char-info {
   display: flex;
   flex-direction: column;
