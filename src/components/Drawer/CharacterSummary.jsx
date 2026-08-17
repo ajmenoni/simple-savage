@@ -39,6 +39,11 @@ function CharacterSummary({ character }) {
         </div>
 
         {item.armor && <div className="gear-detail">Armor: +{item.armor}</div>}
+        {item.parry && <div className="gear-detail">Parry: +{item.parry}</div>}
+        {item.cover && <div className="gear-detail">Cover: -{item.cover}</div>}
+        {item.range && <div className="gear-detail">Range: {item.range}</div>}
+        {item.ap && <div className="gear-detail">AP: {item.ap}</div>}
+        {item.rof && <div className="gear-detail">ROF: {item.rof}</div>}
 
         {item.damage && (
           <div className="gear-detail">Damage: {item.damage}</div>
