@@ -155,8 +155,13 @@ function Character({ character }) {
                 {character.items.map((item) => (
                   <li className="character-sheet__gear-item" key={item.id}>
                     <strong>{item.name}</strong>
-                    {item.type && <span>Type: {item.type}</span>}
+
                     {item.armor && <span>Armor: +{item.armor}</span>}
+                    {item.parry && <span>Parry: +{item.parry}</span>}
+                    {item.cover && <span>Cover: -{item.cover}</span>}
+                    {item.range && <span>Range: {item.range}</span>}
+                    {item.ap && <span>AP: {item.ap}</span>}
+                    {item.rof && <span>ROF: {item.rof}</span>}
                     {item.damage && <span>Damage: {item.damage}</span>}
                     {item.minStr && (
                       <span>Minimum Strength: d{item.minStr}</span>

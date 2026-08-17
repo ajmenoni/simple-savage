@@ -15,6 +15,7 @@ import Powers from "./components/Powers/Powers";
 import Drawer from "./components/Drawer/Drawer";
 import CharacterSummary from "./components/Drawer/CharacterSummary";
 import Character from "./components/Character/Character";
+import { downloadCharacterText } from "./utils/exportCharacterText";
 
 const coreSkills = skills.filter((skill) => skill.coreSkill === true);
 
@@ -131,12 +132,20 @@ function App() {
               text={"Previous"}
               onClick={() => setStep((prev) => Math.max(prev - 1, MIN_STEP))}
             />
-            {step < 8 && (
+            {step === 8 ? (
               <Button
                 className={"bottom-nav-button"}
-                text={step === 7 ? "Finish" : "Next"}
-                onClick={() => setStep((prev) => prev + 1)}
+                text={"Save as Txt"}
+                onClick={() => downloadCharacterText(character)}
               />
+            ) : (
+              step < 8 && (
+                <Button
+                  className={"bottom-nav-button"}
+                  text={step === 7 ? "Finish" : "Next"}
+                  onClick={() => setStep((prev) => prev + 1)}
+                />
+              )
             )}
           </div>
         )}
